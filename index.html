@@ -1,646 +1,1576 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
+<html lang="ru">
+<head>
 <meta charset="utf-8">
-<title>Аудит Google Ads — vision-club.ae</title>
+<title>Vision Club · Audit Dossier № 545·391·0629</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --ink: #1a1a1a;
-  --muted: #6b6b6b;
-  --line: #d8d4cf;
-  --paper: #fafaf7;
-  --accent: #b53a2a;
-  --warn: #c9882a;
-  --good: #4a7a47;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
-       font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-.page { max-width: 720px; margin: 0 auto; padding: 64px 28px 80px; }
-.kicker { font-family: Georgia, "Times New Roman", serif; font-style: italic;
-          color: var(--muted); font-size: 14px; letter-spacing: .02em; margin-bottom: 8px; }
-h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400;
-     font-size: 40px; line-height: 1.15; margin: 0 0 14px; letter-spacing: -.01em; }
-.dek { font-size: 18px; color: var(--muted); margin: 0 0 4px; max-width: 600px; }
-.byline { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line);
-          border-bottom: 1px solid var(--line); padding: 14px 0; margin: 36px 0 50px;
-          display: flex; flex-wrap: wrap; gap: 20px; }
-.byline span strong { color: var(--ink); font-weight: 600; }
-h2 { font-family: Georgia, serif; font-weight: 400; font-size: 28px;
-     margin: 60px 0 18px; line-height: 1.2; }
-h3 { font-family: Georgia, serif; font-weight: 600; font-size: 20px;
-     margin: 32px 0 12px; }
-p { margin: 0 0 16px; }
-.lead { font-size: 19px; }
-.lead::first-letter { font-family: Georgia, serif; font-size: 56px; float: left;
-                       line-height: 0.9; margin: 6px 8px 0 0; font-weight: 600; }
-strong.fact { color: var(--accent); font-family: Georgia, serif; font-weight: 600;
-              font-size: 1.05em; }
-strong.good { color: var(--good); font-family: Georgia, serif; font-weight: 600;
-              font-size: 1.05em; }
-.pull { font-family: Georgia, serif; font-style: italic; font-size: 24px; line-height: 1.4;
-        color: var(--ink); border-left: 3px solid var(--accent); padding: 8px 0 8px 24px;
-        margin: 30px 0; }
-.pull strong { font-style: normal; color: var(--accent); }
-table { width: 100%; border-collapse: collapse; margin: 20px 0 32px; font-size: 14px; }
-th { font-weight: 600; text-align: left; padding: 10px 8px;
-     border-bottom: 2px solid var(--ink); font-size: 12px; text-transform: uppercase;
-     letter-spacing: .04em; }
-td { padding: 12px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-td.num { text-align: right; font-variant-numeric: tabular-nums; }
-td.date { white-space: nowrap; color: var(--muted); font-variant-numeric: tabular-nums; }
-tr.muted td { color: var(--muted); }
-tr.good td.num strong { color: var(--good); }
-.meta { color: var(--muted); font-size: 12px; }
-.chart-wrap { margin: 24px 0 36px; background: white; padding: 20px; border: 1px solid var(--line); }
-canvas { max-height: 280px; }
-ol.actions { counter-reset: act; list-style: none; padding: 0; margin: 24px 0; }
-ol.actions li { counter-increment: act; position: relative; padding: 18px 0 18px 56px;
-                border-bottom: 1px solid var(--line); }
-ol.actions li:last-child { border-bottom: none; }
-ol.actions li::before { content: counter(act); position: absolute; left: 0; top: 16px;
-                        font-family: Georgia, serif; font-size: 28px; color: var(--accent);
-                        width: 40px; text-align: center; }
-ol.actions h4 { margin: 0 0 4px; font-size: 17px; font-weight: 600; font-family: inherit; }
-ol.actions p { margin: 0; color: var(--muted); font-size: 15px; }
-.priority { font-size: 11px; text-transform: uppercase; letter-spacing: .05em;
-            color: var(--accent); font-weight: 600; margin-right: 8px; }
-.priority.med { color: var(--warn); }
-.priority.low { color: var(--muted); }
-footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--line);
-         color: var(--muted); font-size: 13px; }
-ul { padding-left: 22px; margin: 0 0 16px; }
-ul li { margin-bottom: 6px; }
-code { font-size: 13px; background: rgba(0,0,0,.04); padding: 1px 5px; border-radius: 2px; }
+  :root {
+    --ink-0: #0a0908;
+    --ink-1: #15120f;
+    --ink-2: #221d18;
+    --ink-3: #332b22;
+    --paper: #f4ecdd;
+    --paper-2: #efe5d2;
+    --paper-3: #e6dac3;
+    --bone: #cbbfa6;
+    --signal: #dc4b3c;
+    --signal-deep: #a82c20;
+    --gold: #c89b5a;
+    --gold-deep: #8c6837;
+    --moss: #768f5b;
+    --rust: #b46a3b;
+    --shadow: 0 18px 40px -28px rgba(0,0,0,.6), 0 2px 6px -2px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; padding: 0;
+    background: var(--ink-0);
+    color: var(--paper);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 17px; line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ── grain overlay ─────────────────────────────────────────── */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 200;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: .18; mix-blend-mode: overlay;
+  }
+
+  /* ── reading progress ──────────────────────────────────────── */
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--signal) 0%, var(--gold) 100%);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .12s linear; z-index: 300;
+  }
+
+  /* ── floating chapter marker ───────────────────────────────── */
+  .rail {
+    position: fixed; right: 28px; top: 50%; transform: translateY(-50%);
+    z-index: 150; pointer-events: none;
+    display: flex; flex-direction: column; gap: 7px; align-items: flex-end;
+  }
+  .rail span { display: block; width: 12px; height: 1px; background: var(--bone); opacity: .25; transition: all .35s ease; }
+  .rail span.is-current { width: 28px; opacity: 1; background: var(--gold); }
+  @media (max-width: 920px) { .rail { display: none; } }
+
+  /* ── page frame ────────────────────────────────────────────── */
+  main {
+    position: relative;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(200,155,90,.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 30%, rgba(220,75,60,.05) 0%, transparent 55%),
+      var(--ink-0);
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   COVER                                                     */
+  /* ═══════════════════════════════════════════════════════════ */
+  .cover {
+    min-height: 100vh; position: relative;
+    padding: 36px 48px 56px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    border-bottom: 1px solid rgba(244, 236, 221, 0.08);
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, transparent 0%, transparent 70%, rgba(10,9,8,.6) 100%),
+      radial-gradient(ellipse 80% 50% at 60% 50%, rgba(200,155,90,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover__topbar {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--bone); position: relative; z-index: 2;
+    animation: fadeDown .9s ease both .1s;
+  }
+  .cover__topbar > div { display: flex; flex-direction: column; gap: 4px; }
+  .cover__topbar .ref { color: var(--gold); }
+  .cover__topbar .stamp {
+    border: 1px solid var(--gold-deep); padding: 7px 10px;
+    color: var(--gold); border-radius: 1px;
+    font-size: 10px; letter-spacing: .22em;
+  }
+
+  .cover__body {
+    align-self: center; position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr; gap: 28px;
+  }
+
+  .cover__kicker {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(14px, 1.3vw, 17px);
+    color: var(--bone); letter-spacing: .02em;
+    animation: fadeUp .9s ease both .25s;
+  }
+  .cover__kicker::before { content: "—— "; color: var(--gold); }
+
+  .cover__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(74px, 14vw, 220px);
+    line-height: .82;
+    letter-spacing: -0.04em;
+    margin: 0; color: var(--paper);
+    font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+    animation: fadeUp 1.1s ease both .4s;
+  }
+  .cover__title .v2 {
+    display: inline-block;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .cover__title .slash {
+    display: inline-block;
+    color: var(--signal); font-weight: 200; margin: 0 .04em;
+    transform: translateY(-.04em);
+  }
+
+  .cover__id {
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(18px, 2.4vw, 28px);
+    letter-spacing: .14em;
+    color: var(--gold);
+    animation: fadeUp 1.1s ease both .55s;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .cover__id::before, .cover__id::after {
+    content: ""; height: 1px; background: var(--gold-deep); flex: 1; max-width: 80px; opacity: .6;
+  }
+
+  .cover__lede {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.4;
+    color: var(--paper-2);
+    max-width: 620px;
+    animation: fadeUp 1.1s ease both .7s;
+  }
+  .cover__lede strong {
+    font-style: normal; font-weight: 500; color: var(--signal);
+  }
+
+  .cover__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(244, 236, 221, 0.12);
+    padding-top: 22px;
+    position: relative; z-index: 2;
+    animation: fadeUp 1.1s ease both .85s;
+  }
+  .cover__meta > div {
+    padding: 4px 0;
+    border-left: 1px solid rgba(244, 236, 221, 0.06);
+    padding-left: 16px;
+  }
+  .cover__meta > div:first-child { border-left: none; padding-left: 0; }
+  .cover__meta dt {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--bone); opacity: .7;
+    margin-bottom: 6px;
+  }
+  .cover__meta dd {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-size: 19px; font-weight: 400; color: var(--paper);
+    font-variation-settings: "opsz" 18;
+  }
+
+  .cover__scroll {
+    position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--bone); opacity: .55;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: fadeUp 1.2s ease both 1.1s, bob 2.4s ease-in-out infinite 1.6s;
+  }
+  .cover__scroll::after {
+    content: ""; width: 1px; height: 28px; background: var(--gold);
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   STATS STRIP                                               */
+  /* ═══════════════════════════════════════════════════════════ */
+  .stats {
+    background: var(--paper);
+    color: var(--ink-0);
+    padding: 70px 48px 78px;
+    position: relative;
+  }
+  .stats::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+    opacity: .5;
+  }
+  .stats__head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 48px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .stats__head h2 {
+    margin: 0; font-family: "Fraunces", serif; font-weight: 300;
+    font-size: 17px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-0);
+  }
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink-0);
+    border-bottom: 1px solid var(--ink-0);
+  }
+  .stats__cell {
+    padding: 32px 24px;
+    border-right: 1px solid rgba(10,9,8,.18);
+    position: relative;
+  }
+  .stats__cell:last-child { border-right: none; }
+  .stats__num {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 1; letter-spacing: -0.04em;
+    color: var(--ink-0);
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    display: block;
+    margin-bottom: 14px;
+  }
+  .stats__cell--signal .stats__num { color: var(--signal-deep); }
+  .stats__cell--good .stats__num { color: var(--moss); }
+  .stats__cell--alert .stats__num {
+    color: var(--signal-deep);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .stats__label {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px; line-height: 1.5; color: var(--ink-3);
+    text-transform: uppercase; letter-spacing: .1em; font-weight: 500;
+  }
+  .stats__label em {
+    display: block; font-style: normal; text-transform: none; letter-spacing: 0;
+    font-family: "Fraunces", serif; font-style: italic;
+    font-size: 14px; color: var(--ink-2); margin-top: 4px;
+    font-weight: 300;
+  }
+
+  @media (max-width: 820px) {
+    .stats__grid { grid-template-columns: 1fr 1fr; }
+    .stats__cell:nth-child(2) { border-right: none; }
+    .stats__cell:nth-child(1), .stats__cell:nth-child(2) { border-bottom: 1px solid rgba(10,9,8,.18); }
+  }
+  @media (max-width: 480px) {
+    .stats__grid { grid-template-columns: 1fr; }
+    .stats__cell { border-right: none; border-bottom: 1px solid rgba(10,9,8,.18); }
+    .stats__cell:last-child { border-bottom: none; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   THESIS                                                    */
+  /* ═══════════════════════════════════════════════════════════ */
+  .thesis {
+    padding: 110px 48px 80px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+    gap: 64px;
+    align-items: start;
+    position: relative;
+  }
+  .thesis__label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold);
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    align-self: start;
+    position: sticky; top: 32px;
+  }
+  .thesis__label::before {
+    content: ""; display: block; width: 1px; height: 36px; background: var(--gold); margin: 0 auto 14px;
+  }
+  .thesis__title-block { grid-column: 1; }
+  .thesis__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-size: clamp(48px, 6vw, 88px);
+    line-height: .95; letter-spacing: -0.03em;
+    color: var(--paper);
+    margin: 0;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .thesis__title em {
+    font-style: italic; color: var(--gold); font-weight: 300;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .thesis__subtitle {
+    font-family: "Fraunces", serif; font-style: italic; font-weight: 300;
+    font-size: 19px; color: var(--bone); margin-top: 20px;
+  }
+  .thesis__body {
+    grid-column: 2;
+    font-size: 18px; line-height: 1.7;
+  }
+  .thesis__body p { margin: 0 0 22px; color: var(--paper-2); }
+  .thesis__body p:first-child {
+    font-family: "Fraunces", serif; font-weight: 300;
+    font-size: 22px; line-height: 1.5; color: var(--paper);
+    font-variation-settings: "opsz" 24;
+  }
+  .thesis__body p:first-child::first-letter {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 300;
+    font-size: 84px; float: left; line-height: .82;
+    margin: 8px 12px 0 0;
+    color: var(--gold);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+
+  strong.signal {
+    color: var(--signal); font-weight: 600;
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 1.04em;
+  }
+  strong.good {
+    color: var(--moss); font-weight: 600;
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 1.04em;
+  }
+  strong.gold {
+    color: var(--gold); font-weight: 600;
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 24;
+    font-size: 1.04em;
+  }
+
+  @media (max-width: 820px) {
+    .thesis { grid-template-columns: 1fr; gap: 28px; padding: 70px 32px 56px; }
+    .thesis__label { writing-mode: horizontal-tb; transform: none; position: static; }
+    .thesis__label::before { display: inline-block; width: 28px; height: 1px; margin: 0 12px 4px 0; vertical-align: middle; }
+    .thesis__title-block, .thesis__body { grid-column: 1; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   CHAPTERS                                                  */
+  /* ═══════════════════════════════════════════════════════════ */
+  .chapter {
+    position: relative;
+    padding: 80px 48px 40px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .chapter--alt {
+    background: var(--ink-1);
+    max-width: none;
+    margin: 0;
+  }
+  .chapter--alt .chapter__inner { max-width: 1200px; margin: 0 auto; }
+  .chapter__inner { display: grid; grid-template-columns: 80px 1fr; gap: 56px; }
+  .chapter__num {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 1;
+    color: var(--gold);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    position: sticky; top: 28px;
+    text-align: right;
+  }
+  .chapter__num::before {
+    content: "Глава";
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-style: normal; font-weight: 400;
+    font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--bone); opacity: .6;
+    margin-bottom: 8px;
+  }
+  .chapter__body { min-width: 0; }
+  .chapter__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--paper);
+    margin: 0 0 12px;
+    font-variation-settings: "opsz" 60, "SOFT" 40;
+  }
+  .chapter__title em {
+    font-style: italic; color: var(--gold);
+    font-variation-settings: "opsz" 60, "SOFT" 100, "WONK" 1;
+  }
+  .chapter__kicker {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: inline-block;
+  }
+  .chapter__kicker::after { content: " ⌁"; }
+
+  .chapter__body p {
+    margin: 0 0 18px;
+    color: var(--paper-2);
+    font-size: 17px; line-height: 1.72;
+    max-width: 680px;
+  }
+  .chapter__body ul { padding-left: 0; list-style: none; margin: 18px 0; }
+  .chapter__body ul li {
+    padding: 14px 0 14px 36px;
+    border-bottom: 1px solid rgba(244,236,221,.08);
+    position: relative;
+    color: var(--paper-2);
+  }
+  .chapter__body ul li::before {
+    content: "▸"; position: absolute; left: 8px; top: 14px;
+    color: var(--gold);
+  }
+  .chapter__body ul li:last-child { border-bottom: none; }
+  .chapter__body ul li strong { color: var(--paper); }
+
+  /* drop-cap on first chapter para */
+  .chapter__body > p.lede {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-size: 21px; line-height: 1.55;
+    color: var(--paper);
+    font-variation-settings: "opsz" 24;
+  }
+  .chapter__body > p.lede::first-letter {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-style: italic;
+    font-size: 78px; float: left;
+    line-height: .85; margin: 6px 10px 0 0;
+    color: var(--gold);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+
+  code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px; padding: 2px 6px;
+    background: rgba(200,155,90,.08);
+    color: var(--gold);
+    border-radius: 1px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   PULL QUOTE                                                */
+  /* ═══════════════════════════════════════════════════════════ */
+  .pull {
+    margin: 44px 0 44px -28px;
+    padding: 18px 0 18px 32px;
+    border-left: 2px solid var(--signal);
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.35;
+    color: var(--paper);
+    font-variation-settings: "opsz" 60, "SOFT" 100, "WONK" 1;
+    max-width: 720px;
+  }
+  .pull strong {
+    font-style: normal; font-weight: 500;
+    color: var(--signal);
+    font-variation-settings: "opsz" 60, "SOFT" 30;
+  }
+  .pull::before {
+    content: "❝"; display: block;
+    font-size: 64px; color: var(--gold);
+    font-family: "Fraunces", serif;
+    line-height: 0; margin-bottom: 24px;
+    opacity: .7;
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   EXHIBIT (tables)                                          */
+  /* ═══════════════════════════════════════════════════════════ */
+  .exhibit {
+    margin: 36px 0;
+    background: var(--paper);
+    color: var(--ink-0);
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .exhibit__head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--ink-0);
+  }
+  .exhibit__num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--gold-deep); font-weight: 500;
+  }
+  .exhibit__title {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 400;
+    font-size: 16px; color: var(--ink-0);
+    font-variation-settings: "opsz" 18;
+  }
+  .exhibit table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  .exhibit th {
+    text-align: left; font-weight: 600;
+    padding: 14px 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--ink-2);
+  }
+  .exhibit th.num { text-align: right; }
+  .exhibit td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(10,9,8,.08);
+    vertical-align: top;
+    color: var(--ink-1);
+    line-height: 1.5;
+  }
+  .exhibit td.num {
+    text-align: right;
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-0);
+  }
+  .exhibit tr:last-child td { border-bottom: none; }
+  .exhibit tr.good td { background: rgba(118,143,91,.08); }
+  .exhibit tr.good strong { color: var(--moss); }
+  .exhibit tr.muted td { color: var(--ink-3); opacity: .68; }
+  .exhibit tbody tr:hover { background: rgba(200,155,90,.06); }
+  .exhibit .meta {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--ink-3);
+    letter-spacing: .04em;
+  }
+  .exhibit strong { color: var(--ink-0); }
+  .exhibit .fact { color: var(--signal-deep); }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   CHART                                                     */
+  /* ═══════════════════════════════════════════════════════════ */
+  .chart-card {
+    margin: 36px 0;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+    padding: 24px 24px 20px;
+  }
+  .chart-card__head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(10,9,8,.15);
+  }
+  .chart-card__num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--gold-deep); font-weight: 500;
+  }
+  .chart-card__title {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-size: 16px; color: var(--ink-0);
+  }
+  canvas { max-height: 320px; }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   GEO-SHRINK VISUAL                                         */
+  /* ═══════════════════════════════════════════════════════════ */
+  .geo-shrink {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px; align-items: center;
+    margin: 40px 0;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(220,75,60,.08), rgba(200,155,90,.05));
+    border: 1px solid rgba(220,75,60,.18);
+  }
+  .geo-shrink__side {
+    text-align: center;
+  }
+  .geo-shrink__num {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-size: 96px; line-height: 1;
+    color: var(--paper);
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .geo-shrink__right .geo-shrink__num { color: var(--signal); }
+  .geo-shrink__lbl {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--bone); margin-top: 8px;
+  }
+  .geo-shrink__arrow {
+    font-family: "Fraunces", serif;
+    font-size: 56px;
+    color: var(--gold);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+  }
+  @media (max-width: 600px) {
+    .geo-shrink { grid-template-columns: 1fr; }
+    .geo-shrink__arrow { transform: rotate(90deg); margin: 0 auto; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   ASSET-GROUP DOTS                                          */
+  /* ═══════════════════════════════════════════════════════════ */
+  .ratings {
+    display: inline-flex; gap: 3px; vertical-align: middle;
+  }
+  .ratings span {
+    width: 7px; height: 14px; background: rgba(10,9,8,.2);
+    display: inline-block;
+  }
+  .ratings.r-good span { background: var(--moss); }
+  .ratings.r-avg span:nth-child(-n+2) { background: var(--gold-deep); }
+  .ratings.r-avg span:nth-child(n+3) { background: rgba(10,9,8,.12); }
+  .ratings.r-poor span:nth-child(1) { background: var(--signal-deep); }
+  .ratings.r-poor span:nth-child(n+2) { background: rgba(10,9,8,.12); }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   DIRECTIVES                                                */
+  /* ═══════════════════════════════════════════════════════════ */
+  .directives {
+    background: var(--ink-1);
+    padding: 96px 48px 96px;
+    margin: 80px 0 0;
+    border-top: 1px solid rgba(244, 236, 221, 0.08);
+    border-bottom: 1px solid rgba(244, 236, 221, 0.08);
+  }
+  .directives__inner { max-width: 1200px; margin: 0 auto; }
+  .directives__head {
+    display: grid; grid-template-columns: 80px 1fr; gap: 56px; margin-bottom: 48px;
+  }
+  .directives__num {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 300; font-size: 88px; line-height: 1;
+    color: var(--signal);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    text-align: right;
+  }
+  .directives__num::before {
+    content: "Действия";
+    display: block; font-family: "JetBrains Mono", monospace;
+    font-style: normal; font-weight: 400; font-size: 9px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--bone); opacity: .6; margin-bottom: 8px;
+  }
+  .directives__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-size: clamp(36px, 4.4vw, 56px);
+    line-height: 1.05; color: var(--paper);
+    margin: 0 0 12px;
+  }
+  .directives__title em { font-style: italic; color: var(--gold); }
+  .directives__intro {
+    color: var(--paper-2); max-width: 680px; font-size: 17px;
+  }
+
+  ol.directive-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(244, 236, 221, 0.08);
+    border-left: 1px solid rgba(244, 236, 221, 0.08);
+    counter-reset: dir;
+  }
+  ol.directive-list li {
+    counter-increment: dir;
+    padding: 32px 28px 36px;
+    border-right: 1px solid rgba(244, 236, 221, 0.08);
+    border-bottom: 1px solid rgba(244, 236, 221, 0.08);
+    position: relative;
+    transition: background .3s ease;
+  }
+  ol.directive-list li::before {
+    content: counter(dir, decimal-leading-zero);
+    position: absolute; top: 32px; right: 28px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: .14em;
+    color: var(--bone); opacity: .5;
+  }
+  ol.directive-list li::after {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: var(--bone); opacity: .3;
+    transition: opacity .3s ease;
+  }
+  ol.directive-list li.high::after { background: var(--signal); opacity: 1; }
+  ol.directive-list li.med::after { background: var(--gold); opacity: .8; }
+  ol.directive-list li.low::after { background: var(--bone); opacity: .35; }
+  ol.directive-list li:hover { background: rgba(200,155,90,.04); }
+  ol.directive-list li:hover::after { opacity: 1; }
+
+  .directive__priority {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
+    padding: 4px 9px;
+    border: 1px solid currentColor;
+    color: var(--bone);
+    margin-bottom: 14px;
+  }
+  ol.directive-list li.high .directive__priority { color: var(--signal); }
+  ol.directive-list li.med .directive__priority { color: var(--gold); }
+
+  .directive__title {
+    font-family: "Fraunces", serif;
+    font-weight: 400; font-style: italic;
+    font-size: 21px; line-height: 1.25;
+    color: var(--paper);
+    margin: 0 0 12px;
+    font-variation-settings: "opsz" 24, "SOFT" 60, "WONK" 1;
+    padding-right: 30px;
+  }
+  .directive__body {
+    font-size: 15px; line-height: 1.6;
+    color: var(--paper-2);
+  }
+  .directive__body code {
+    font-size: 12px;
+  }
+
+  @media (max-width: 720px) {
+    .directives { padding: 64px 28px; }
+    .directives__head { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
+    .directives__num { text-align: left; font-size: 56px; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   EPILOGUE                                                  */
+  /* ═══════════════════════════════════════════════════════════ */
+  .epilogue {
+    padding: 110px 48px 80px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 56px;
+  }
+  .epilogue__num {
+    font-family: "Fraunces", serif; font-style: italic;
+    font-weight: 300; font-size: 88px; color: var(--gold);
+    line-height: 1; text-align: right;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .epilogue__num::before {
+    content: "Эпилог"; display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-style: normal; font-weight: 400; font-size: 9px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--bone); opacity: .6; margin-bottom: 8px;
+  }
+  .epilogue__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300; font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.1; color: var(--paper);
+    margin: 0 0 24px;
+  }
+  .epilogue__body p {
+    color: var(--paper-2); margin: 0 0 20px;
+    font-size: 17px; line-height: 1.72; max-width: 720px;
+  }
+  .epilogue__body .question {
+    font-family: "Fraunces", serif; font-style: italic;
+    font-weight: 300; font-size: 26px; line-height: 1.4;
+    color: var(--paper); margin: 32px 0;
+    padding-left: 24px;
+    border-left: 2px solid var(--gold);
+    font-variation-settings: "opsz" 36, "WONK" 1;
+  }
+
+  @media (max-width: 720px) {
+    .chapter { padding: 64px 28px 32px; }
+    .chapter__inner { grid-template-columns: 1fr; gap: 12px; }
+    .chapter__num { font-size: 44px; text-align: left; position: static; }
+    .pull { margin-left: 0; padding-left: 22px; }
+    .thesis { padding: 56px 28px 40px; }
+    .stats { padding: 56px 28px 64px; }
+    .epilogue { grid-template-columns: 1fr; padding: 70px 28px 56px; gap: 20px; }
+    .epilogue__num { text-align: left; font-size: 52px; }
+    .cover { padding: 28px 24px 56px; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   COLOPHON / FOOTER                                         */
+  /* ═══════════════════════════════════════════════════════════ */
+  .colophon {
+    padding: 70px 48px;
+    background: var(--ink-0);
+    border-top: 1px solid rgba(244, 236, 221, 0.08);
+    text-align: center;
+    position: relative;
+  }
+  .seal {
+    width: 124px; height: 124px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    margin: 0 auto 24px;
+    color: var(--gold);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
+    position: relative;
+  }
+  .seal::before {
+    content: ""; position: absolute; inset: 6px;
+    border: 1px solid rgba(200,155,90,.3);
+    border-radius: 50%;
+  }
+  .seal__mark {
+    font-family: "Fraunces", serif;
+    font-style: italic; font-weight: 300; font-size: 32px;
+    color: var(--gold); letter-spacing: 0; line-height: 1;
+    margin-bottom: 6px;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+  }
+  .colophon__line {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: .14em;
+    color: var(--bone); opacity: .6; margin: 4px 0;
+  }
+  .colophon__line strong { color: var(--gold); font-weight: 400; }
+
+  /* ═══════════════════════════════════════════════════════════ */
+  /*   ANIMATIONS                                                */
+  /* ═══════════════════════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+
+  /* selection */
+  ::selection { background: var(--gold); color: var(--ink-0); }
 </style>
-</head><body>
-
-<div class="page">
-
-<div class="kicker">Аудит рекламного кабинета · Google Ads</div>
-<h1>vision-club.ae</h1>
-<p class="dek">EXT. Vision Club — бизнес-клуб в Дубае, промо в процессе</p>
-
-<div class="byline">
-  <span>Период · <strong>28.02.2026 — 28.05.2026</strong></span>
-  <span>Валюта · <strong>USD</strong></span>
-  <span>Customer ID · <strong>545-391-0629</strong></span>
-  <span>Тайм-зона · <strong>Asia/Dubai</strong></span>
-  <span>Дата · <strong>28.05.2026</strong></span>
-</div>
-
-<h2 style="margin-top: 0;">Главный вывод</h2>
-
-<p>Аккаунт — рабочий. За 30 дней активности (с 28 апреля по 28 мая) рекламная
-машина выдала <strong class="good">414 065</strong> показов,
-<strong class="good">14 478</strong> кликов,
-<strong class="good">184</strong> конверсии при медианном CPA
-<strong class="good">$7,63</strong>. Это уровень, при котором обсуждать «работает /
-не работает» не нужно — работает.</p>
-
-<p>Главные вопросы, которые ставит аудит, в другом. <strong>Лучшие кампании
-выключены.</strong> PMax «Все сигналы — Страны New» с CPA <strong class="good">$4,41</strong>
-(89 конверсий) — PAUSED. PMax «Все сигналы — Страны» с CPA $7,94 (64 конверсии) —
-PAUSED. DemandGen «Создание спроса — Страны» (31 конверсия) — PAUSED. Включены
-сейчас только две кампании с фокусом «Дубай» — обе дали
-<strong class="fact">0</strong> конверсий на $69 потраченных. Если за выключением
-стоит решение перевести промо на узкое гео — это требует пояснения; пока цифры
-показывают, что аккаунт перешёл с работающего на пилотный режим.</p>
-
-<p>Параллельно — структурная фрагментация: <strong class="fact">26 кампаний</strong>
-(24 на паузе), <strong class="fact">27 бюджетов</strong> (один дубликат),
-<strong class="fact">11 разных PMax-сегментаций</strong> (запускалось только две),
-<strong class="fact">1163 ключевых слова</strong> в четырёх Search-кампаниях,
-которые суммарно дали 19 показов. Это след экспериментов, которые так и не убрали.</p>
-
-<p>Под капотом — ещё несколько вещей, которые подтачивают результат тихо:
-<strong class="fact">19 объявлений на YouTube отклонены</strong> с причиной «видео
-недоступно» — резервная ветка сломана; в активной PMax-«Дубай» работает
-asset group со средним рейтингом креативов, а лучшая (GOOD) — на паузе; на ту же
-PMax не повешено <strong>ни одного sitelink, callout или другого расширения</strong>;
-все <strong class="fact">111 поисковых объявлений</strong> недокручены до максимума
-по headlines/descriptions. И конверсии за последнюю неделю — минус 60%
-к предыдущей.</p>
-
-<h2>Как мы сюда пришли</h2>
-
-<p class="lead">Кабинет начал тратить деньги <strong class="fact">28 апреля 2026</strong>.
-До этой даты — нулевая активность; вся история последних 90 дней умещается в
-последние 30. Это совпадает с «промо в процессе» в названии аккаунта — старт
-рекламной активности был привязан к этой кампании.</p>
-
-<p>Структура кабинета говорит, что готовились серьёзно: 26 кампаний под разные
-форматы (Search, PMax, DemandGen, Display, YouTube Shorts), под разные гео (Дубай,
-Страны, Европа), под разные хайпотезы внутри PMax (Аудитории, Ключи, Интересы,
-База, Все сигналы, Local). Реально запустилось — пять-шесть из них.</p>
-
-<h2>Что показало результаты</h2>
-
-<table>
-<thead><tr><th>Кампания</th><th>Тип</th><th class="num">Расход</th><th class="num">Клики</th><th class="num">Конв.</th><th class="num">CPA</th><th>Сейчас</th></tr></thead>
-<tbody>
-<tr class="good"><td><strong>PMax — Все сигналы — Страны New</strong></td><td>PMax</td><td class="num">$392,72</td><td class="num">4 363</td><td class="num"><strong>89</strong></td><td class="num"><strong>$4,41</strong></td><td>PAUSED</td></tr>
-<tr><td><strong>PMax — Все сигналы — Страны</strong></td><td>PMax</td><td class="num">$508,02</td><td class="num">5 763</td><td class="num">64</td><td class="num">$7,94</td><td>PAUSED</td></tr>
-<tr><td><strong>iProfit — Создание спроса — Страны</strong></td><td>Demand Gen</td><td class="num">$426,31</td><td class="num">4 257</td><td class="num">31</td><td class="num">$13,75</td><td>PAUSED</td></tr>
-<tr class="muted"><td><strong>iProfit — Создание спроса — Дубай</strong></td><td>Demand Gen</td><td class="num">$36,42</td><td class="num">55</td><td class="num">0</td><td class="num">—</td><td>ENABLED</td></tr>
-<tr class="muted"><td><strong>PMax — Все сигналы — Дубай</strong></td><td>PMax</td><td class="num">$32,94</td><td class="num">37</td><td class="num">0</td><td class="num">—</td><td>ENABLED</td></tr>
-<tr class="muted"><td><strong>iProfit — Поиск — Бизнес клуб Страны</strong></td><td>Search</td><td class="num">$7,27</td><td class="num">3</td><td class="num">0</td><td class="num">—</td><td>PAUSED</td></tr>
-</tbody>
-</table>
-
-<p>Три верхние строки — это весь результат периода. Они дали 184 из 184 конверсий,
-$1 327 из $1 404 расхода и 99% всего трафика. Все три — на паузе. Все три
-работали по широкому географическому таргетингу («Страны» — это, судя по
-названиям, набор стран без сужения до одного города).</p>
-
-<p>Лучшая по экономике — <strong>PMax «Все сигналы — Страны New»</strong>: CPA $4,41,
-доля показов 36%, потеря по рейтингу 63%. Иными словами, при текущем бюджете
-$20/день эта кампания уперлась в свою ставку — Google показал бы её в три раза
-чаще, если бы был выше Ad Rank или больше бюджет. Это редкий случай, когда есть
-готовый ответ на вопрос «куда вкладывать ещё»: <strong>сюда, без структурных
-изменений, просто бюджет</strong>.</p>
-
-<div class="pull">PMax «Страны New» сделала <strong>89 конверсий за $393. Этого достаточно,
-чтобы алгоритм считался обученным.</strong> Выключать его сейчас — это сбрасывать обучение.</div>
-
-<h2>Что включено сейчас</h2>
-
-<p>Активны две кампании, обе с фокусом «Дубай»:</p>
-
-<table>
-<thead><tr><th>Кампания</th><th class="num">Бюджет/день</th><th class="num">Показы</th><th class="num">Клики</th><th class="num">Расход</th><th class="num">Конв.</th><th class="num">IS</th></tr></thead>
-<tbody>
-<tr><td><strong>iProfit — Создание спроса — Дубай</strong><br><span class="meta">Demand Gen · Maximize Conversions</span></td><td class="num">$13,13</td><td class="num">5 346</td><td class="num">55</td><td class="num">$36,42</td><td class="num">0</td><td class="num">0,0%</td></tr>
-<tr><td><strong>PMax — Все сигналы — Дубай</strong><br><span class="meta">Performance Max · Maximize Conversions</span></td><td class="num">$20,00</td><td class="num">2 456</td><td class="num">37</td><td class="num">$32,94</td><td class="num">0</td><td class="num">80,0%</td></tr>
-</tbody>
-</table>
-
-<p>Обе кампании — копии работавших «Страны»-версий, но с географией, сузенной до
-Дубая. После переключения произошло то, что видно на графике активности: 21 мая —
-последний день, когда был полноценный объём (270 кликов, 6 конверсий); 22 мая —
-провал (147 показов); далее восстановление, но уже на меньшем объёме и без
-конверсий на «Дубай»-кампаниях. Конверсии, которые есть после 22 мая, идут
-с других paused-кампаний на остаточном трафике (PMax иногда продолжает приносить
-несколько дней после паузы).</p>
-
-<p>Главное наблюдение: <strong>при переключении с «Страны» на «Дубай» структура
-была скопирована, а гипотеза о том, что в более узком гео сработает та же
-аудитория и тот же креатив — пока не подтверждена ни одной конверсией</strong>.
-Доля показов 80% у PMax-«Дубай» — это нормальный сигнал на узкой аудитории
-(аукциона мало, выигрываем его легко), но клики не конвертируются. Либо
-посадочная не подходит для дубайской аудитории, либо аудитория слишком узкая,
-чтобы в ней были покупатели.</p>
-
-<div class="chart-wrap">
-  <canvas id="ch"></canvas>
-</div>
-
-<h2>Цена недели переключения</h2>
-
-<p>Сравнение двух последних семидневок — то, что произошло после смены гео на «Дубай»:</p>
-
-<table>
-<thead><tr><th>Метрика</th><th class="num">Предыдущие 7 дней<br><span class="meta">14–20 мая</span></th><th class="num">Последние 7 дней<br><span class="meta">22–28 мая</span></th><th class="num">Δ</th></tr></thead>
-<tbody>
-<tr><td>Конверсии</td><td class="num">48</td><td class="num">19</td><td class="num"><strong class="fact">−60%</strong></td></tr>
-<tr><td>Клики</td><td class="num">1 926</td><td class="num">1 130</td><td class="num">−41%</td></tr>
-<tr><td>Показы</td><td class="num">43 473</td><td class="num">36 211</td><td class="num">−17%</td></tr>
-<tr><td>Расход</td><td class="num">$219,96</td><td class="num">$240,46</td><td class="num">+9%</td></tr>
-</tbody>
-</table>
-
-<p>За неделю аккаунт стал тратить больше, а получать втрое меньше конверсий.
-Последние два дня — <strong>27 и 28 мая — 0 конверсий на $69 расхода</strong>.
-22 мая, день самого переключения, в аккаунте было 147 показов и $0,24 расхода —
-почти сутки рекламы не было вообще. Это переключение «встык», без перекрытия
-между остановкой работающей кампании и стартом новой.</p>
-
-<h2>Гео сжалось в десять раз</h2>
-
-<p>Лучшая по экономике PMax-«Страны New» работала по 10 локациям:
-<strong>Кипр, Грузия, Казахстан, Португалия, Турция</strong> и пять городов /
-регионов — Бали, Валенсия, Марбелья, Мадрид, Бангкок. Логика прозрачная: точки
-концентрации русскоязычной диаспоры с премиум-доходом. Языки в таргетинге —
-русский и украинский, и это единственное, что не поменялось.</p>
-
-<p>После переключения география выглядит так:</p>
-
-<table>
-<thead><tr><th>Кампания</th><th class="num">Локаций</th><th>Состав</th></tr></thead>
-<tbody>
-<tr><td>PMax — Все сигналы — Страны <span class="meta">(paused)</span></td><td class="num"><strong>10</strong></td><td>Кипр, Грузия, Казахстан, Португалия, Турция + 5 городов</td></tr>
-<tr><td>PMax — Все сигналы — Страны New <span class="meta">(paused)</span></td><td class="num">1</td><td>Кипр</td></tr>
-<tr><td>iProfit — Создание спроса — Страны <span class="meta">(paused)</span></td><td class="num">2</td><td>Кипр + Турция</td></tr>
-<tr><td><strong>PMax — Все сигналы — Дубай <span class="meta">(active)</span></strong></td><td class="num">1</td><td>Дубай</td></tr>
-<tr><td><strong>iProfit — Создание спроса — Дубай <span class="meta">(active)</span></strong></td><td class="num">1</td><td>Дубай</td></tr>
-</tbody>
-</table>
-
-<p>Между «Страны» и тем, что сейчас работает — разница не в одной географической
-точке. Это сжатие аудитории примерно <strong>в десять раз</strong> за один шаг.
-PMax с MAXIMIZE_CONVERSIONS, у которого нет якоря по CPA, в такой ситуации
-ведёт себя предсказуемо: тратит бюджет «во все стороны» в поиске новой
-работающей аудитории и не находит её за две недели. Это видно в цифрах.</p>
-
-<p>Search-кампания «Бизнес клуб Страны» (тоже paused) при этом таргетила
-одновременно <strong>UAE как страну и Дубай как город</strong> — двойное
-покрытие одной и той же территории. Это техническая мелочь, но симптоматичная:
-гео-таргетинг по всему аккаунту собирался без единой логики.</p>
-
-<h2>В активной PMax — не лучший креатив</h2>
-
-<p>В единственной работающей сейчас PMax-«Дубай» — четыре asset group'ы.
-Запущена одна. Не самая сильная:</p>
-
-<table>
-<thead><tr><th>Asset group</th><th>Рейтинг Google</th><th>Статус</th></tr></thead>
-<tbody>
-<tr class="good"><td>База 4–6 сцен</td><td><strong class="good">GOOD</strong></td><td>PAUSED</td></tr>
-<tr><td>НГ</td><td>AVERAGE</td><td>PAUSED</td></tr>
-<tr><td><strong>Гостевой</strong></td><td>AVERAGE</td><td><strong>ENABLED</strong></td></tr>
-<tr class="muted"><td>годовщина 1</td><td>POOR</td><td>PAUSED</td></tr>
-</tbody>
-</table>
-
-<p>Активна <code>Гостевой</code> со средним рейтингом, а <code>База 4–6 сцен</code> с
-высоким рейтингом — выключена. Если это сознательное решение под конкретное
-промо — оно может быть оправданным, но требует пояснения. Если нет — это
-ещё один источник недополучения охвата: GOOD-группы в среднем дают Google
-заметно больше показов, чем AVERAGE.</p>
-
-<p>На самой кампании <strong>нет ни одного расширения</strong>: только логотипы и
-название бизнеса. Никаких sitelink, callout, structured snippet, promo,
-price extension. Для PMax это <strong>−15 до −25% CTR</strong> на тех же
-аукционах — расширения подаются на уровне кампании и используются алгоритмом
-во всех плейсментах.</p>
-
-<p>На второй активной кампании — DemandGen-«Дубай» — sitelinks подключены
-(5 штук). Почему то же самое не сделано для PMax, не ясно.</p>
-
-<h2>Что ещё мешает алгоритму</h2>
-
-<p>Несколько настроек, которые на одном из них критично:</p>
-
-<ul>
-<li><strong>Ни в одной активной кампании не задан target_CPA.</strong> Все шесть
-кампаний, у которых был расход, работают на чистом MAXIMIZE_CONVERSIONS без
-ограничителя по цене. Это нормально на старте, когда нет данных. Но 184
-конверсии при медианном CPA $7,63 — это уже статистическая база. tCPA $9–10
-дал бы алгоритму якорь и не позволил «гулять» по цене при смене гео — что
-ровно сейчас и произошло.</li>
-
-<li><strong>На обеих активных кампаниях включён target_search_network</strong>
-(показ через поисковых партнёров Google). Для PMax это значение фактически
-игнорируется — алгоритм решает сам. Для Demand Gen это «галка для галочки»:
-формат запускается на YouTube / Discover / Gmail, поисковые партнёры тут
-ни при чём и обычно дают мусорный охват, если попадают.</li>
-</ul>
-
-<h2>Структура: 26 кампаний, из которых 24 на паузе</h2>
-
-<p>В кабинете накоплено множество кампаний-«гипотез», которые так и не запустились.
-Особенно показателен PMax — на нём построено <strong class="fact">11</strong> разных
-кампаний, отличающихся только сигналами:</p>
-
-<table>
-<thead><tr><th>PMax-кампания</th><th class="num">Бюджет</th><th class="num">Показы</th><th class="num">Конв.</th></tr></thead>
-<tbody>
-<tr><td>PMax — Все сигналы — Страны New</td><td class="num">$20,00</td><td class="num">27 908</td><td class="num">89</td></tr>
-<tr><td>PMax — Все сигналы — Страны</td><td class="num">$20,00</td><td class="num">127 839</td><td class="num">64</td></tr>
-<tr><td>PMax — Все сигналы — Дубай</td><td class="num">$20,00</td><td class="num">2 456</td><td class="num">0</td></tr>
-<tr class="muted"><td>PMax — Аудитории — Дубай</td><td class="num">$16,66</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>PMax — Ключи — Дубай</td><td class="num">$30,00</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>PMax — Интересы — Дубай</td><td class="num">$2,20</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>iProfit — PMax — Авто — Дубай</td><td class="num">$20,27</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>iProfit — PMax — База — Дубай</td><td class="num">$37,50</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>PMax — База — Дубай -2</td><td class="num">$5,00</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>iProfit — PMax — База общая — Дубай</td><td class="num">$40,00</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>iProfit — Local PMax</td><td class="num">$5,00</td><td class="num">0</td><td class="num">0</td></tr>
-<tr class="muted"><td>PMax — База — Европа</td><td class="num">$7,00</td><td class="num">0</td><td class="num">0</td></tr>
-</tbody>
-</table>
-
-<p>Видна гипотеза: «разнесём сигналы в PMax по разным кампаниям и посмотрим, какой
-тип сигнала работает». Это противоречит тому, как устроен PMax. Алгоритм работает
-лучше, когда видит все сигналы вместе — он сам решает, какой из них использовать
-для конкретного аукциона. Сегментация по типу сигнала фрагментирует обучение и
-делает каждую отдельную кампанию слишком маленькой для статистической
-обучаемости. Именно поэтому работает только версия «Все сигналы», а все
-остальные восемь — нули.</p>
-
-<h2>YouTube-резерв сломан</h2>
-
-<p>В аккаунте три YouTube/DemandGen-кампании на паузе:
-<code>Youtube — создание спроса</code>, <code>iProfit — Youtube Shorts — Дубай</code>,
-<code>iProfit — Youtube Shorts — Дубай — Встреча</code>. По задумке — это резерв
-для запуска видеоформата, когда понадобится охватная история.</p>
-
-<p>По факту в этих трёх кампаниях <strong class="fact">19 объявлений отклонены</strong>
-Google с одной причиной — <code>UNAVAILABLE_VIDEO</code>: прикреплённое
-YouTube-видео либо удалено, либо переведено в приватный режим, либо ссылка
-битая. Одно из объявлений отклонено ещё и за <code>RESTRICTED_ACCESS_VIDEO</code> —
-ограниченный доступ к видео по аудитории.</p>
-
-<table>
-<thead><tr><th>Кампания</th><th class="num">Отклонено</th></tr></thead>
-<tbody>
-<tr><td>iProfit — Youtube Shorts — Дубай</td><td class="num"><strong>15</strong></td></tr>
-<tr><td>iProfit — Youtube Shorts — Дубай — Встреча</td><td class="num">1</td></tr>
-<tr><td>Youtube — создание спроса</td><td class="num">1</td></tr>
-<tr><td class="meta">прочие (paused-кампании, не из активной линейки)</td><td class="num">2</td></tr>
-</tbody>
-</table>
-
-<p>Кампании выключены, и пока они выключены — это не тратит денег. Но это
-означает: если завтра решат «давайте поднимем YouTube как верхнюю воронку»,
-ничего не запустится. <strong>Прежде чем включать — нужно почистить или
-заменить видеоассеты в этих 19 объявлениях.</strong> Иначе кампания пройдёт
-модерацию повторно с тем же результатом.</p>
-
-<h2>Search: 1 163 ключа, 19 показов</h2>
-
-<p>В четырёх Search-кампаниях (все PAUSED) заведено
-<strong class="fact">1 163</strong> ключевых слова в
-<strong class="fact">111</strong> ad groups. Из них активную фазу прошла одна —
-«iProfit — Поиск — Бизнес клуб Страны»: 19 показов, 3 клика, $7,27, 0 конверсий.</p>
-
-<table>
-<thead><tr><th>Search-кампания</th><th class="num">Ad groups</th><th class="num">Ключи</th><th class="num">Показы 90d</th></tr></thead>
-<tbody>
-<tr><td>iProfit — Поиск — Бизнес клуб (общие + конкуренты) Дубай</td><td class="num">36</td><td class="num">410</td><td class="num">0</td></tr>
-<tr><td>Поиск — Бизнес клуб (общие + конкуренты) Европа</td><td class="num">36</td><td class="num">410</td><td class="num">0</td></tr>
-<tr><td>iProfit — Поиск — Околоцелевое</td><td class="num">27</td><td class="num">258</td><td class="num">0</td></tr>
-<tr><td>iProfit — Поиск — Бизнес клуб (общие + конкуренты) Страны</td><td class="num">12</td><td class="num">85</td><td class="num">0</td></tr>
-</tbody>
-</table>
-
-<p>36 ad groups в одной кампании — это микро-разметка, при которой каждая группа
-в среднем содержит 11 ключей. Для нишевого запроса «бизнес-клуб» это слишком
-тонко: реальный частотный объём по этим ключам — 1–2 показа в месяц на ключ,
-а такая разметка размазывает их по 36 группам, где каждая отдельная группа
-никогда не наберёт критическую массу.</p>
-
-<p>Поисковые запросы, по которым показалась реклама за период:
-<code>бизнес клуб</code>, <code>бизнес сообщества</code>, <code>vision business club</code>
-(брендовый), <code>board business club</code>, <code>клуб терра</code>,
-<code>аномалия бизнес клуб</code>, <code>бизнес клуб дубай</code>. Эта тонкая
-аудитория не масштабируется через Search — её можно догнать только через
-ремаркетинг и push-форматы (DemandGen, PMax), что и подтверждается результатами
-PMax-«Страны».</p>
-
-<p>Внутри одной из этих Search-кампаний (<code>iProfit — Поиск — Бизнес клуб
-Дубай</code>) <strong class="fact">250 ключей</strong> заведены сразу в три
-ad group'ы — <strong>каждый</strong>. Это <code>dubai business</code>,
-<code>business club</code>, <code>vision business club</code>,
-<code>бизнес клуб атланты</code>, <code>клуб магнат</code>, <code>board club</code>
-и ещё две с половиной сотни. На один поиск Google показывает один из них,
-а остальные два простаивают и подтягивают вниз Quality Score всей кампании.
-Это последствие микро-разметки: чем больше ad group'ов, тем выше шанс, что
-один и тот же ключ попадёт в несколько групп — кто-то поэтому ad group и не
-прибил после копирования.</p>
-
-<h2>Объявления недостроены</h2>
-
-<p>В четырёх Search-кампаниях — <strong class="fact">111 responsive search ads</strong>.
-Google для каждого RSA позволяет 15 headlines и 4 descriptions. <strong>Ни одно
-из 111 объявлений не использует этот лимит до конца:</strong></p>
-
-<table>
-<thead><tr><th>Кампания</th><th class="num">RSA</th><th class="num">Headlines</th><th class="num">Descriptions</th></tr></thead>
-<tbody>
-<tr><td>iProfit — Поиск — Бизнес клуб Дубай</td><td class="num">11</td><td class="num">14 / 15</td><td class="num">3 / 4</td></tr>
-<tr><td>iProfit — Поиск — Околоцелевое</td><td class="num">27</td><td class="num">15 / 15</td><td class="num">3 / 4</td></tr>
-<tr><td>Поиск — Бизнес клуб Европа</td><td class="num">36</td><td class="num">15 / 15</td><td class="num">3 / 4</td></tr>
-<tr><td>iProfit — Поиск — Бизнес клуб Страны</td><td class="num">37</td><td class="num">15 / 15</td><td class="num">3 / 4</td></tr>
-</tbody>
-</table>
-
-<p>Видна типичная история: шаблон Search-кампании в Дубае сделали первым,
-не дописали ни последний headline, ни четвёртое description, потом
-скопировали в остальные три региона — в копиях headline дописали, descriptions
-оставили на 3. Результат: каждый из 111 объявлений теряет <strong>около 5–10%
-Ad Strength</strong>, что выливается в более низкий охват и более высокий CPC
-на тех же аукционах.</p>
-
-<p>Это самое механически починяемое из всего, что есть в аудите. Час работы — и
-все 111 RSA подтянуты до максимума. До перезапуска Search-ветки это нужно
-сделать.</p>
-
-<h2>Конверсии настроены аккуратно</h2>
-
-<p>В кабинете <strong class="fact">16</strong> conversion actions, из которых
-6 помечены как primary_for_goal. Структура хорошая:</p>
-
-<ul>
-<li><strong>VISION CLUB (web) LEAD_GA4</strong> — основной лид через GA4, primary;</li>
-<li><strong>Clicks to call, Store visits, Local actions</strong> (Directions, Website visits,
-Engagements) — primary, локальная воронка;</li>
-<li>Микро-цели <code>fb_vision</code>, <code>fb_aleksey</code>, <code>fb_dariia</code>,
-<code>inst_aleksey</code>, <code>inst_dariia</code>, <code>inst_vision</code> —
-прокси-сигналы для атрибуции через соцсети;</li>
-<li>Импортированные события из GA4 (`ads_conversion__https_vision_club_ae_t_1`) — в
-статусе HIDDEN, не считаются в основной отчётности;</li>
-<li>Auto-tagging включён.</li>
-</ul>
-
-<p>Это не «настроили один раз и забыли», это сетка целей с микро-конверсиями для
-обучения алгоритма. Именно поэтому PMax «Все сигналы — Страны New» получил
-обучение за месяц и вышел на CPA $4,41 — алгоритму хватило сигнала.</p>
-
-<p>Одно исключение — активная конверсия <code>Android installs (all other apps)</code>.
-Это глобальный счётчик установок любых Android-приложений из Google Play
-после клика по рекламе. У бизнес-клуба нет своего приложения, и в активные
-цели этот счётчик не записан, но он остаётся в общем списке и иногда
-проявляется в отчётах под названием «конверсия». Стоит выключить — это не
-сигнал, к которому имеет смысл присматриваться.</p>
-
-<h2>Бюджеты-мусор</h2>
-
-<p>В кабинете <strong class="fact">27</strong> Campaign Budget'ов на 26 кампаний.
-Заметные аномалии:</p>
-
-<ul>
-<li>Бюджет <code>КМС — Конкуренты — Дубай</code> создан <strong>дважды</strong>:
-$4 (не привязан ни к одной кампании, сирота) и $6 (привязан). Один из них —
-ошибка.</li>
-<li>Бюджеты PMax-сегментаций (Аудитории $16,66, Авто $20,27, Интересы $2,20,
-База $37,50, База -2 $5, База общая $40) — все привязаны к paused кампаниям,
-которые ни разу не запустились. Они не тратят деньги, но занимают пространство
-в отчётах и интерфейсе.</li>
-</ul>
-
-<p>Из 27 бюджетов <strong class="fact">восемь</strong> — это отдельные бюджеты
-по $20/день, по одному на кампанию: PMax-Дубай, Search-Дубай, два YouTube
-Shorts, YouTube-лента, бизнес-завтрак и ещё несколько. Не дублирующие, но
-несвязанные. Если в какой-то момент решат запустить две-три из этих кампаний
-одновременно — переливать ставку между ними получится только руками. Это
-кейс под shared budget, который аккаунт не использует ни разу.</p>
-
-<p>Это не критическая поломка. Это симптом того, что в кабинете не делают
-«генеральную уборку» после неудачных запусков — и каждая попытка оставляет след.</p>
-
-<h2>Что делать</h2>
-
-<p>Ниже — действия в порядке силы эффекта. Все три первых пункта про одно:
-вернуть работавшее, прежде чем строить новое.</p>
-
-<ol class="actions">
-  <li>
-    <span class="priority">Сначала</span>
-    <h4>Включить обратно «PMax — Все сигналы — Страны New»</h4>
-    <p>Это единственная кампания в аккаунте с подтверждённой экономикой
-    (CPA $4,41, 89 конверсий, доля показов всего 36% — есть куда расти). Если
-    промо «Дубай» планируется параллельно — пусть «Страны New» работает
-    в фоне. Выключение этой кампании — самое дорогое решение в аккаунте сейчас.</p>
-  </li>
-  <li>
-    <span class="priority">Сначала</span>
-    <h4>Дать понимание: зачем выключили работающее</h4>
-    <p>Если за этим стоит решение клиента сузить промо до Дубая — это не
-    оптимизация, это смена стратегии, и её надо обсуждать отдельно. Если это
-    случайность или попытка «дать алгоритму обучиться на Дубае без шума»,
-    то такая логика обычно не работает: PMax не «забывает» в фоне, выключение
-    делает только хуже.</p>
-  </li>
-  <li>
-    <span class="priority">Сначала</span>
-    <h4>Поднять бюджет «Страны New» до $40–60/день</h4>
-    <p>Доля показов 36%, потеря по рейтингу 63%, конверсии стабильные. Это
-    редкий случай, когда удвоение бюджета даст близкое к удвоению результата
-    (а не «как обычно — 30%»). Текущий лимит — $20 — был выставлен на этапе
-    обучения, теперь его пора снять.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Удалить все «пробные» PMax-сегментации</h4>
-    <p>Восемь PMax-кампаний с разделением сигналов (Аудитории, Ключи, Интересы,
-    База, База -2, База общая, Авто, Local) — удалить. Они не работают и не
-    могут работать в выбранной форме. PMax эффективнее с одной кампанией, в
-    которую заводятся все сигналы вместе — что подтверждает текущая «Все сигналы».</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Search упростить до одной кампании</h4>
-    <p>Из четырёх Search-кампаний оставить одну — «Бизнес-клуб Страны»: широкое
-    гео (та же логика, что у работающего PMax), 10–15 ad groups вместо 36,
-    50–80 ключей вместо 410. Околоцелевое и Европу — отдельно решать, нужны ли
-    они вообще: при объёмах PMax-«Страны» Search может оказаться лишним
-    каналом. Если оставлять — бюджет минимум $30/день, иначе ставки будут ниже
-    аукциона.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Сменить asset group в активной PMax-«Дубай»</h4>
-    <p>Asset group <code>База 4–6 сцен</code> с рейтингом GOOD сейчас на паузе,
-    а работает <code>Гостевой</code> со средним рейтингом. Если решение запустить
-    «Гостевого» не было обдуманным под текущее промо — поставить активной
-    «Базу 4–6 сцен» либо запустить параллельно. Это бесплатное действие
-    с измеримым эффектом на охват и CPA.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Повесить расширения на PMax-«Дубай»</h4>
-    <p>На активной PMax нет ни одного sitelink, callout, structured snippet,
-    promo. На DemandGen-«Дубай» — есть 5 sitelinks. Скопировать оттуда то,
-    что применимо, и собрать на PMax недостающее. Ожидаемый эффект — +CTR
-    и +Ad Rank в тех же аукционах, без расхода.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Поставить target_CPA после возврата «Страны New»</h4>
-    <p>Когда «Страны New» обучена и идёт стабильно — заменить чистый
-    MAXIMIZE_CONVERSIONS на тот же максимайз с tCPA $9–10 (выше медианного
-    CPA $7,63, чтобы алгоритм не подрезался). Это снизит риск повторения
-    нынешнего сценария «алгоритм пошёл за дешёвым трафиком и потерял
-    конверсии», если потом решат снова сузить гео.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Решить судьбу «Дубай»-кампаний</h4>
-    <p>За месяц активности в узком гео — 0 конверсий на $69. Это слишком мало,
-    чтобы делать выводы, но достаточно, чтобы поставить вопрос: либо даём
-    «Дубаю» сильно больше бюджета и сравнимый период (4 недели, $50+/день),
-    либо признаём, что в этой географии и при этой посадочной нет смысла —
-    и закрываем гипотезу.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Достроить 111 RSA до 15 headlines / 4 descriptions</h4>
-    <p>Самое механически починяемое: добавить недостающие headlines и
-    descriptions во все 111 RSA. Это час работы и +5–10% Ad Strength во всей
-    Search-ветке. До перезапуска Search-кампаний — обязательно.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Заменить или удалить видео в 19 отклонённых ads</h4>
-    <p>Все 19 объявлений на YouTube/DemandGen висят с <code>UNAVAILABLE_VIDEO</code>.
-    Пройти по списку, проверить ссылки, восстановить или заменить
-    видеоассеты. Без этого YouTube-резерв нельзя запустить даже при желании.</p>
-  </li>
-  <li>
-    <span class="priority med">Затем</span>
-    <h4>Дедуплицировать ключи в Search-Дубай</h4>
-    <p>250 ключей в трёх ad group'ах одной кампании. Оставить в одной, в двух
-    остальных удалить. Это снизит внутреннюю конкуренцию и подтянет QS.</p>
-  </li>
-  <li>
-    <span class="priority low">Когда наберётся данных</span>
-    <h4>Прибрать бюджеты-сироты, дубликаты, конверсии-мусор</h4>
-    <p>Удалить бюджет <code>КМС — Конкуренты — Дубай</code> ($4, ref=0).
-    Выключить <code>Android installs (all other apps)</code> в conversion actions —
-    у бизнес-клуба нет приложения. Связать оставшиеся бюджеты с конкретными
-    активными кампаниями или удалить. Восемь отдельных $20-бюджетов
-    объединить в один-два shared, если планируется одновременный запуск
-    нескольких кампаний.</p>
-  </li>
-  <li>
-    <span class="priority low">Когда наберётся данных</span>
-    <h4>Снять target_search_network с DemandGen</h4>
-    <p>На активной DemandGen-«Дубай» включён показ через поисковых партнёров,
-    что для этого формата лишнее. Выключить, чтобы исключить мусорный
-    охват.</p>
-  </li>
-  <li>
-    <span class="priority low">Когда наберётся данных</span>
-    <h4>Подумать о DemandGen-«Дубай» как о верхней воронке</h4>
-    <p>«iProfit — Создание спроса — Дубай» сейчас даёт 5 346 показов и 55 кликов
-    без конверсий. Это типично для Demand Gen — он работает как охватный
-    источник, а конверсии «дозревают» через ремаркетинг и Search. Имеет смысл
-    оставить, но не как самостоятельный конверсионный канал, а как генератор
-    аудитории для PMax-«Дубай», если последняя выживет.</p>
-  </li>
-</ol>
-
-<h2>Что произойдёт после</h2>
-
-<p>Если включить «Страны New» обратно с бюджетом $50/день, при тех же CPA-метриках
-ожидаемо: 4–5 конверсий в день, $20–25 на каждую. За месяц — 120–150 конверсий
-дополнительно к тому, что приносит «Дубай» (если он начнёт приносить). Это не
-прогноз — это просто продление того, что уже было в апреле–мае: данные есть,
-кампания обучена, аукцион не насыщен. Все остальные действия из списка —
-уборочные, эффект на бизнес-метрики у них вторичный.</p>
-
-<p>Ключевой вопрос аудита остаётся открытым и для меня, и для клиента: <strong>что
-именно требовалось от переключения на «Дубай»?</strong> Если ответ есть и он
-обоснован — действуем дальше внутри этой логики. Если ответа нет — стоит вернуться
-к тому, что работало.</p>
-
-<footer>
-  Аудит подготовлен на данных Google Ads API v23 · период 28.02.2026 — 28.05.2026 · 28.05.2026<br>
-  Customer 545-391-0629 «EXT. VISION CLUB / vision-club.ae (раздельные счета, 15%), промо в процессе»
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<nav class="rail" id="rail" aria-hidden="true"></nav>
+
+<main>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   COVER                                                       -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover__topbar">
+    <div>
+      <span>Audit Dossier · Google Ads</span>
+      <span class="ref">№ 545·391·0629</span>
+    </div>
+    <div class="stamp">Confidential · Client Eyes</div>
+  </div>
+
+  <div class="cover__body">
+    <div class="cover__kicker">Аудит рекламного кабинета · 90 дней</div>
+
+    <h1 class="cover__title">
+      Vision<span class="slash">·</span><span class="v2">Club</span>
+    </h1>
+
+    <div class="cover__id">545 · 391 · 0629</div>
+
+    <p class="cover__lede">
+      EXT. Vision Club — бизнес-клуб в&nbsp;Дубае. Промо в&nbsp;процессе.
+      Аккаунт <strong>работает</strong> — и при этом
+      выключены кампании, которые принесли все 184 конверсии.
+    </p>
+
+    <dl class="cover__meta">
+      <div>
+        <dt>Период</dt>
+        <dd>28.02 — 28.05.2026</dd>
+      </div>
+      <div>
+        <dt>Валюта</dt>
+        <dd>USD</dd>
+      </div>
+      <div>
+        <dt>Часовой пояс</dt>
+        <dd>Asia / Dubai</dd>
+      </div>
+      <div>
+        <dt>Customer ID</dt>
+        <dd>545-391-0629</dd>
+      </div>
+      <div>
+        <dt>Дата</dt>
+        <dd>28.05.2026</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="cover__scroll">Читать вердикт</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   STATS STRIP                                                 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="stats">
+  <div class="stats__head">
+    <h2>Аккаунт в&nbsp;четырёх числах</h2>
+    <span>сентенция I</span>
+  </div>
+  <div class="stats__grid">
+    <div class="stats__cell stats__cell--good">
+      <span class="stats__num">184</span>
+      <div class="stats__label">конверсии за 30 дней<em>при медианном CPA $7,63</em></div>
+    </div>
+    <div class="stats__cell stats__cell--good">
+      <span class="stats__num">$4,41</span>
+      <div class="stats__label">лучший CPA<em>PMax «Страны New» — на паузе</em></div>
+    </div>
+    <div class="stats__cell stats__cell--signal">
+      <span class="stats__num">19</span>
+      <div class="stats__label">отклонённых объявлений<em>UNAVAILABLE_VIDEO на YouTube</em></div>
+    </div>
+    <div class="stats__cell stats__cell--alert">
+      <span class="stats__num">−60%</span>
+      <div class="stats__label">конверсии неделя/неделя<em>после переключения на «Дубай»</em></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   THESIS                                                      -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="thesis" id="ch-thesis" data-chapter>
+  <div class="thesis__label">Резюме · Вердикт</div>
+  <div class="thesis__title-block">
+    <h2 class="thesis__title">Аккаунт работает.<br><em>Лучшие кампании выключены.</em></h2>
+    <p class="thesis__subtitle">— одна фраза для занятого читателя</p>
+  </div>
+  <div class="thesis__body">
+    <p>Аккаунт — рабочий. За 30 дней активности (с&nbsp;28 апреля по&nbsp;28&nbsp;мая) рекламная машина выдала <strong class="good">414 065</strong> показов, <strong class="good">14 478</strong> кликов, <strong class="good">184</strong> конверсии при медианном CPA <strong class="good">$7,63</strong>. Это уровень, при котором обсуждать «работает / не работает» не нужно — работает.</p>
+
+    <p>Главные вопросы, которые ставит аудит, в&nbsp;другом. <strong class="signal">Лучшие кампании выключены.</strong> PMax «Все сигналы — Страны New» с&nbsp;CPA <strong class="good">$4,41</strong> (89 конверсий) — PAUSED. PMax «Все сигналы — Страны» с&nbsp;CPA $7,94 (64 конверсии) — PAUSED. DemandGen «Создание спроса — Страны» (31 конверсия) — PAUSED. Включены сейчас только две кампании с&nbsp;фокусом «Дубай» — обе дали <strong class="signal">0</strong> конверсий на $69 потраченных.</p>
+
+    <p>Параллельно — структурная фрагментация: <strong class="signal">26 кампаний</strong> (24 на паузе), <strong class="signal">27 бюджетов</strong> (один дубликат), <strong class="signal">11 разных PMax-сегментаций</strong> (запускалось только две), <strong class="signal">1163 ключевых слова</strong> в&nbsp;четырёх Search-кампаниях, которые суммарно дали 19 показов. Это след экспериментов, которые так и&nbsp;не убрали.</p>
+
+    <p>Под капотом — ещё несколько вещей, которые подтачивают результат тихо: <strong class="signal">19 объявлений на&nbsp;YouTube отклонены</strong> с&nbsp;причиной «видео недоступно» — резервная ветка сломана; в&nbsp;активной PMax-«Дубай» работает asset group со&nbsp;средним рейтингом креативов, а&nbsp;лучшая&nbsp;(GOOD) — на&nbsp;паузе; на&nbsp;ту же PMax не повешено <strong class="gold">ни одного sitelink, callout или другого расширения</strong>; все <strong class="signal">111 поисковых объявлений</strong> недокручены до&nbsp;максимума по&nbsp;headlines/descriptions. И&nbsp;конверсии за&nbsp;последнюю неделю — минус 60% к&nbsp;предыдущей.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   CHAPTERS                                                    -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="chapter" id="ch-1" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">I</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Контекст</span>
+      <h2 class="chapter__title">Как мы <em>сюда пришли</em></h2>
+      <p class="lede">Кабинет начал тратить деньги <strong class="signal">28 апреля 2026</strong>. До этой даты — нулевая активность; вся история последних 90 дней умещается в&nbsp;последние 30. Это совпадает с&nbsp;«промо в&nbsp;процессе» в&nbsp;названии аккаунта — старт рекламной активности был привязан к&nbsp;этой кампании.</p>
+      <p>Структура кабинета говорит, что готовились серьёзно: 26 кампаний под разные форматы (Search, PMax, DemandGen, Display, YouTube Shorts), под разные гео (Дубай, Страны, Европа), под разные хайпотезы внутри PMax (Аудитории, Ключи, Интересы, База, Все сигналы, Local). Реально запустилось — пять-шесть из них.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter--alt" id="ch-2" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">II</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Что сработало</span>
+      <h2 class="chapter__title">Что показало <em>результаты</em></h2>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit I · 90 дней</span>
+          <span class="exhibit__title">Кампании, у&nbsp;которых был расход</span>
+        </header>
+        <table>
+          <thead><tr><th>Кампания</th><th>Тип</th><th class="num">Расход</th><th class="num">Клики</th><th class="num">Конв.</th><th class="num">CPA</th><th>Сейчас</th></tr></thead>
+          <tbody>
+            <tr class="good"><td><strong>PMax — Все сигналы — Страны New</strong></td><td>PMax</td><td class="num">$392,72</td><td class="num">4 363</td><td class="num"><strong>89</strong></td><td class="num"><strong>$4,41</strong></td><td>PAUSED</td></tr>
+            <tr><td><strong>PMax — Все сигналы — Страны</strong></td><td>PMax</td><td class="num">$508,02</td><td class="num">5 763</td><td class="num">64</td><td class="num">$7,94</td><td>PAUSED</td></tr>
+            <tr><td><strong>iProfit — Создание спроса — Страны</strong></td><td>Demand Gen</td><td class="num">$426,31</td><td class="num">4 257</td><td class="num">31</td><td class="num">$13,75</td><td>PAUSED</td></tr>
+            <tr class="muted"><td><strong>iProfit — Создание спроса — Дубай</strong></td><td>Demand Gen</td><td class="num">$36,42</td><td class="num">55</td><td class="num">0</td><td class="num">—</td><td>ENABLED</td></tr>
+            <tr class="muted"><td><strong>PMax — Все сигналы — Дубай</strong></td><td>PMax</td><td class="num">$32,94</td><td class="num">37</td><td class="num">0</td><td class="num">—</td><td>ENABLED</td></tr>
+            <tr class="muted"><td><strong>iProfit — Поиск — Бизнес клуб Страны</strong></td><td>Search</td><td class="num">$7,27</td><td class="num">3</td><td class="num">0</td><td class="num">—</td><td>PAUSED</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Три верхние строки — это весь результат периода. Они дали 184 из 184 конверсий, $1 327 из $1 404 расхода и&nbsp;99% всего трафика. Все три — на&nbsp;паузе. Все три работали по&nbsp;широкому географическому таргетингу («Страны» — это, судя по&nbsp;названиям, набор стран без сужения до&nbsp;одного города).</p>
+
+      <p>Лучшая по&nbsp;экономике — <strong>PMax «Все сигналы — Страны New»</strong>: CPA $4,41, доля показов 36%, потеря по&nbsp;рейтингу 63%. Иными словами, при текущем бюджете $20/день эта кампания уперлась в&nbsp;свою ставку — Google показал бы её в&nbsp;три раза чаще, если&nbsp;бы был выше Ad&nbsp;Rank или больше бюджет. Это редкий случай, когда есть готовый ответ на&nbsp;вопрос «куда вкладывать ещё»: <strong>сюда, без структурных изменений, просто бюджет</strong>.</p>
+
+      <div class="pull">PMax «Страны&nbsp;New» сделала <strong>89 конверсий за&nbsp;$393.<br>Этого достаточно, чтобы алгоритм считался обученным.</strong> Выключать его сейчас — это сбрасывать обучение.</div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-3" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">III</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Активные кампании</span>
+      <h2 class="chapter__title">Что включено <em>сейчас</em></h2>
+
+      <p>Активны две кампании, обе с&nbsp;фокусом «Дубай»:</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit II · ENABLED</span>
+          <span class="exhibit__title">Текущая активная линейка</span>
+        </header>
+        <table>
+          <thead><tr><th>Кампания</th><th class="num">Бюджет/день</th><th class="num">Показы</th><th class="num">Клики</th><th class="num">Расход</th><th class="num">Конв.</th><th class="num">IS</th></tr></thead>
+          <tbody>
+            <tr><td><strong>iProfit — Создание спроса — Дубай</strong><br><span class="meta">Demand Gen · Maximize Conversions</span></td><td class="num">$13,13</td><td class="num">5 346</td><td class="num">55</td><td class="num">$36,42</td><td class="num">0</td><td class="num">0,0%</td></tr>
+            <tr><td><strong>PMax — Все сигналы — Дубай</strong><br><span class="meta">Performance Max · Maximize Conversions</span></td><td class="num">$20,00</td><td class="num">2 456</td><td class="num">37</td><td class="num">$32,94</td><td class="num">0</td><td class="num">80,0%</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Обе кампании — копии работавших «Страны»-версий, но с&nbsp;географией, сузенной до&nbsp;Дубая. После переключения произошло то, что видно на&nbsp;графике активности: 21 мая — последний день, когда был полноценный объём (270 кликов, 6 конверсий); 22 мая — провал (147 показов); далее восстановление, но&nbsp;уже на&nbsp;меньшем объёме и&nbsp;без конверсий на&nbsp;«Дубай»-кампаниях. Конверсии, которые есть после 22 мая, идут с&nbsp;других paused-кампаний на&nbsp;остаточном трафике (PMax иногда продолжает приносить несколько дней после паузы).</p>
+
+      <p>Главное наблюдение: <strong>при переключении с&nbsp;«Страны» на&nbsp;«Дубай» структура была скопирована, а&nbsp;гипотеза о&nbsp;том, что в&nbsp;более узком гео сработает та же аудитория и&nbsp;тот же креатив — пока не подтверждена ни одной конверсией</strong>. Доля показов 80% у&nbsp;PMax-«Дубай» — это нормальный сигнал на&nbsp;узкой аудитории (аукциона мало, выигрываем его легко), но клики не конвертируются. Либо посадочная не подходит для дубайской аудитории, либо аудитория слишком узкая, чтобы в&nbsp;ней были покупатели.</p>
+
+      <div class="chart-card">
+        <header class="chart-card__head">
+          <span class="chart-card__num">Exhibit III · Динамика 90 дней</span>
+          <span class="chart-card__title">Показы · Клики · Конверсии</span>
+        </header>
+        <canvas id="ch"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter--alt" id="ch-4" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">IV</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Цена переключения</span>
+      <h2 class="chapter__title">Что стоила <em>эта неделя</em></h2>
+
+      <p>Сравнение двух последних семидневок — то, что произошло после смены гео на&nbsp;«Дубай»:</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit IV · 7d vs 7d</span>
+          <span class="exhibit__title">Динамика неделя к&nbsp;неделе</span>
+        </header>
+        <table>
+          <thead><tr><th>Метрика</th><th class="num">14–20 мая</th><th class="num">22–28 мая</th><th class="num">Δ</th></tr></thead>
+          <tbody>
+            <tr><td>Конверсии</td><td class="num">48</td><td class="num">19</td><td class="num"><strong class="fact">−60%</strong></td></tr>
+            <tr><td>Клики</td><td class="num">1 926</td><td class="num">1 130</td><td class="num">−41%</td></tr>
+            <tr><td>Показы</td><td class="num">43 473</td><td class="num">36 211</td><td class="num">−17%</td></tr>
+            <tr><td>Расход</td><td class="num">$219,96</td><td class="num">$240,46</td><td class="num">+9%</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>За неделю аккаунт стал тратить больше, а&nbsp;получать втрое меньше конверсий. Последние два дня — <strong class="signal">27 и&nbsp;28 мая — 0 конверсий на&nbsp;$69 расхода</strong>. 22 мая, день самого переключения, в&nbsp;аккаунте было 147 показов и&nbsp;$0,24 расхода — почти сутки рекламы не было вообще. Это переключение «встык», без перекрытия между остановкой работающей кампании и&nbsp;стартом новой.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-5" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">V</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">География</span>
+      <h2 class="chapter__title">Гео сжалось <em>в&nbsp;десять раз</em></h2>
+
+      <p>Лучшая по&nbsp;экономике PMax-«Страны&nbsp;New» работала по&nbsp;10 локациям: <strong>Кипр, Грузия, Казахстан, Португалия, Турция</strong> и&nbsp;пять городов / регионов — Бали, Валенсия, Марбелья, Мадрид, Бангкок. Логика прозрачная: точки концентрации русскоязычной диаспоры с&nbsp;премиум-доходом. Языки в&nbsp;таргетинге — русский и&nbsp;украинский, и&nbsp;это единственное, что не поменялось.</p>
+
+      <div class="geo-shrink">
+        <div class="geo-shrink__side geo-shrink__left">
+          <div class="geo-shrink__num">10</div>
+          <div class="geo-shrink__lbl">локаций — «Страны»</div>
+        </div>
+        <div class="geo-shrink__arrow">⤳</div>
+        <div class="geo-shrink__side geo-shrink__right">
+          <div class="geo-shrink__num">1</div>
+          <div class="geo-shrink__lbl">локация — «Дубай»</div>
+        </div>
+      </div>
+
+      <p>После переключения география выглядит так:</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit V · География по&nbsp;кампаниям</span>
+          <span class="exhibit__title">Сжатие за&nbsp;один шаг</span>
+        </header>
+        <table>
+          <thead><tr><th>Кампания</th><th class="num">Локаций</th><th>Состав</th></tr></thead>
+          <tbody>
+            <tr><td>PMax — Все сигналы — Страны <span class="meta">(paused)</span></td><td class="num"><strong>10</strong></td><td>Кипр, Грузия, Казахстан, Португалия, Турция + 5 городов</td></tr>
+            <tr><td>PMax — Все сигналы — Страны New <span class="meta">(paused)</span></td><td class="num">1</td><td>Кипр</td></tr>
+            <tr><td>iProfit — Создание спроса — Страны <span class="meta">(paused)</span></td><td class="num">2</td><td>Кипр + Турция</td></tr>
+            <tr><td><strong>PMax — Все сигналы — Дубай <span class="meta">(active)</span></strong></td><td class="num">1</td><td>Дубай</td></tr>
+            <tr><td><strong>iProfit — Создание спроса — Дубай <span class="meta">(active)</span></strong></td><td class="num">1</td><td>Дубай</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Между «Страны» и&nbsp;тем, что сейчас работает — разница не в&nbsp;одной географической точке. Это сжатие аудитории примерно <strong>в&nbsp;десять раз</strong> за&nbsp;один шаг. PMax с&nbsp;MAXIMIZE_CONVERSIONS, у&nbsp;которого нет якоря по&nbsp;CPA, в&nbsp;такой ситуации ведёт себя предсказуемо: тратит бюджет «во&nbsp;все стороны» в&nbsp;поиске новой работающей аудитории и&nbsp;не находит её за&nbsp;две недели. Это видно в&nbsp;цифрах.</p>
+
+      <p>Search-кампания «Бизнес клуб Страны» (тоже paused) при этом таргетила одновременно <strong>UAE как страну и&nbsp;Дубай как город</strong> — двойное покрытие одной и&nbsp;той же территории. Это техническая мелочь, но симптоматичная: гео-таргетинг по&nbsp;всему аккаунту собирался без единой логики.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter--alt" id="ch-6" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">VI</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Креатив</span>
+      <h2 class="chapter__title">В&nbsp;активной PMax — <em>не лучший</em> креатив</h2>
+
+      <p>В&nbsp;единственной работающей сейчас PMax-«Дубай» — четыре asset group'ы. Запущена одна. Не самая сильная:</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit VI · Asset Groups</span>
+          <span class="exhibit__title">PMax «Все сигналы — Дубай»</span>
+        </header>
+        <table>
+          <thead><tr><th>Asset group</th><th>Рейтинг Google</th><th>Статус</th></tr></thead>
+          <tbody>
+            <tr class="good"><td>База 4–6 сцен</td><td><span class="ratings r-good"><span></span><span></span><span></span><span></span></span> &nbsp; <strong>GOOD</strong></td><td>PAUSED</td></tr>
+            <tr><td>НГ</td><td><span class="ratings r-avg"><span></span><span></span><span></span><span></span></span> &nbsp; AVERAGE</td><td>PAUSED</td></tr>
+            <tr><td><strong>Гостевой</strong></td><td><span class="ratings r-avg"><span></span><span></span><span></span><span></span></span> &nbsp; AVERAGE</td><td><strong>ENABLED</strong></td></tr>
+            <tr class="muted"><td>годовщина 1</td><td><span class="ratings r-poor"><span></span><span></span><span></span><span></span></span> &nbsp; POOR</td><td>PAUSED</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Активна <code>Гостевой</code> со&nbsp;средним рейтингом, а&nbsp;<code>База 4–6 сцен</code> с&nbsp;высоким рейтингом — выключена. Если это сознательное решение под конкретное промо — оно может быть оправданным, но требует пояснения. Если нет — это ещё один источник недополучения охвата: GOOD-группы в&nbsp;среднем дают Google заметно больше показов, чем AVERAGE.</p>
+
+      <p>На&nbsp;самой кампании <strong class="signal">нет ни одного расширения</strong>: только логотипы и&nbsp;название бизнеса. Никаких sitelink, callout, structured snippet, promo, price extension. Для PMax это <strong>−15 до&nbsp;−25% CTR</strong> на&nbsp;тех же аукционах — расширения подаются на&nbsp;уровне кампании и&nbsp;используются алгоритмом во&nbsp;всех плейсментах.</p>
+
+      <p>На&nbsp;второй активной кампании — DemandGen-«Дубай» — sitelinks подключены (5 штук). Почему то же самое не сделано для PMax, не ясно.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-7" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">VII</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Настройки</span>
+      <h2 class="chapter__title">Что ещё <em>мешает</em> алгоритму</h2>
+
+      <p>Несколько настроек, которые на&nbsp;одном из&nbsp;них критично:</p>
+
+      <ul>
+        <li><strong>Ни в&nbsp;одной активной кампании не задан target_CPA.</strong> Все шесть кампаний, у&nbsp;которых был расход, работают на&nbsp;чистом MAXIMIZE_CONVERSIONS без ограничителя по&nbsp;цене. Это нормально на&nbsp;старте, когда нет данных. Но 184 конверсии при медианном CPA $7,63 — это уже статистическая база. tCPA $9–10 дал бы алгоритму якорь и&nbsp;не позволил «гулять» по&nbsp;цене при смене гео — что ровно сейчас и&nbsp;произошло.</li>
+        <li><strong>На&nbsp;обеих активных кампаниях включён target_search_network</strong> (показ через поисковых партнёров Google). Для PMax это значение фактически игнорируется — алгоритм решает сам. Для Demand Gen это «галка для галочки»: формат запускается на&nbsp;YouTube&nbsp;/&nbsp;Discover&nbsp;/&nbsp;Gmail, поисковые партнёры тут ни при чём и&nbsp;обычно дают мусорный охват, если попадают.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter--alt" id="ch-8" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">VIII</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Структура</span>
+      <h2 class="chapter__title">26 кампаний, из&nbsp;которых <em>24 на&nbsp;паузе</em></h2>
+
+      <p>В&nbsp;кабинете накоплено множество кампаний-«гипотез», которые так и&nbsp;не запустились. Особенно показателен PMax — на&nbsp;нём построено <strong class="signal">11</strong> разных кампаний, отличающихся только сигналами:</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit VII · PMax-фрагментация</span>
+          <span class="exhibit__title">11 кампаний, две живых</span>
+        </header>
+        <table>
+          <thead><tr><th>PMax-кампания</th><th class="num">Бюджет</th><th class="num">Показы</th><th class="num">Конв.</th></tr></thead>
+          <tbody>
+            <tr><td>PMax — Все сигналы — Страны New</td><td class="num">$20,00</td><td class="num">27 908</td><td class="num">89</td></tr>
+            <tr><td>PMax — Все сигналы — Страны</td><td class="num">$20,00</td><td class="num">127 839</td><td class="num">64</td></tr>
+            <tr><td>PMax — Все сигналы — Дубай</td><td class="num">$20,00</td><td class="num">2 456</td><td class="num">0</td></tr>
+            <tr class="muted"><td>PMax — Аудитории — Дубай</td><td class="num">$16,66</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>PMax — Ключи — Дубай</td><td class="num">$30,00</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>PMax — Интересы — Дубай</td><td class="num">$2,20</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>iProfit — PMax — Авто — Дубай</td><td class="num">$20,27</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>iProfit — PMax — База — Дубай</td><td class="num">$37,50</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>PMax — База — Дубай -2</td><td class="num">$5,00</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>iProfit — PMax — База общая — Дубай</td><td class="num">$40,00</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>iProfit — Local PMax</td><td class="num">$5,00</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr class="muted"><td>PMax — База — Европа</td><td class="num">$7,00</td><td class="num">0</td><td class="num">0</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Видна гипотеза: «разнесём сигналы в&nbsp;PMax по&nbsp;разным кампаниям и&nbsp;посмотрим, какой тип сигнала работает». Это противоречит тому, как устроен PMax. Алгоритм работает лучше, когда видит все сигналы вместе — он сам решает, какой из&nbsp;них использовать для конкретного аукциона. Сегментация по&nbsp;типу сигнала фрагментирует обучение и&nbsp;делает каждую отдельную кампанию слишком маленькой для статистической обучаемости. Именно поэтому работает только версия «Все сигналы», а&nbsp;все остальные восемь — нули.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-9" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">IX</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">YouTube</span>
+      <h2 class="chapter__title">Резерв <em>сломан</em></h2>
+
+      <p>В&nbsp;аккаунте три YouTube/DemandGen-кампании на&nbsp;паузе: <code>Youtube — создание спроса</code>, <code>iProfit — Youtube Shorts — Дубай</code>, <code>iProfit — Youtube Shorts — Дубай — Встреча</code>. По&nbsp;задумке — это резерв для запуска видеоформата, когда понадобится охватная история.</p>
+
+      <p>По&nbsp;факту в&nbsp;этих трёх кампаниях <strong class="signal">19 объявлений отклонены</strong> Google с&nbsp;одной причиной — <code>UNAVAILABLE_VIDEO</code>: прикреплённое YouTube-видео либо удалено, либо переведено в&nbsp;приватный режим, либо ссылка битая. Одно из&nbsp;объявлений отклонено ещё и&nbsp;за&nbsp;<code>RESTRICTED_ACCESS_VIDEO</code> — ограниченный доступ к&nbsp;видео по&nbsp;аудитории.</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit VIII · Disapprovals</span>
+          <span class="exhibit__title">19 объявлений · UNAVAILABLE_VIDEO</span>
+        </header>
+        <table>
+          <thead><tr><th>Кампания</th><th class="num">Отклонено</th></tr></thead>
+          <tbody>
+            <tr><td>iProfit — Youtube Shorts — Дубай</td><td class="num"><strong>15</strong></td></tr>
+            <tr><td>iProfit — Youtube Shorts — Дубай — Встреча</td><td class="num">1</td></tr>
+            <tr><td>Youtube — создание спроса</td><td class="num">1</td></tr>
+            <tr><td class="meta">прочие (paused-кампании, не из&nbsp;активной линейки)</td><td class="num">2</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Кампании выключены, и&nbsp;пока они выключены — это не тратит денег. Но это означает: если завтра решат «давайте поднимем YouTube как верхнюю воронку», ничего не запустится. <strong>Прежде чем включать — нужно почистить или заменить видеоассеты в&nbsp;этих 19 объявлениях.</strong> Иначе кампания пройдёт модерацию повторно с&nbsp;тем же результатом.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter--alt" id="ch-10" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">X</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Search</span>
+      <h2 class="chapter__title">1 163 ключа, <em>19 показов</em></h2>
+
+      <p>В&nbsp;четырёх Search-кампаниях (все PAUSED) заведено <strong class="signal">1 163</strong> ключевых слова в&nbsp;<strong class="signal">111</strong> ad groups. Из&nbsp;них активную фазу прошла одна — «iProfit — Поиск — Бизнес клуб Страны»: 19 показов, 3 клика, $7,27, 0 конверсий.</p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit IX · Search-инвентарь</span>
+          <span class="exhibit__title">Микро-разметка по&nbsp;ad&nbsp;groups</span>
+        </header>
+        <table>
+          <thead><tr><th>Search-кампания</th><th class="num">Ad groups</th><th class="num">Ключи</th><th class="num">Показы 90d</th></tr></thead>
+          <tbody>
+            <tr><td>iProfit — Поиск — Бизнес клуб (общие + конкуренты) Дубай</td><td class="num">36</td><td class="num">410</td><td class="num">0</td></tr>
+            <tr><td>Поиск — Бизнес клуб (общие + конкуренты) Европа</td><td class="num">36</td><td class="num">410</td><td class="num">0</td></tr>
+            <tr><td>iProfit — Поиск — Околоцелевое</td><td class="num">27</td><td class="num">258</td><td class="num">0</td></tr>
+            <tr><td>iProfit — Поиск — Бизнес клуб (общие + конкуренты) Страны</td><td class="num">12</td><td class="num">85</td><td class="num">0</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>36 ad groups в&nbsp;одной кампании — это микро-разметка, при которой каждая группа в&nbsp;среднем содержит 11 ключей. Для нишевого запроса «бизнес-клуб» это слишком тонко: реальный частотный объём по&nbsp;этим ключам — 1–2 показа в&nbsp;месяц на&nbsp;ключ, а&nbsp;такая разметка размазывает их по&nbsp;36 группам, где каждая отдельная группа никогда не наберёт критическую массу.</p>
+
+      <p>Поисковые запросы, по&nbsp;которым показалась реклама за&nbsp;период: <code>бизнес клуб</code>, <code>бизнес сообщества</code>, <code>vision business club</code> (брендовый), <code>board business club</code>, <code>клуб терра</code>, <code>аномалия бизнес клуб</code>, <code>бизнес клуб дубай</code>. Эта тонкая аудитория не масштабируется через Search — её можно догнать только через ремаркетинг и&nbsp;push-форматы (DemandGen, PMax), что и&nbsp;подтверждается результатами PMax-«Страны».</p>
+
+      <p>Внутри одной из&nbsp;этих Search-кампаний (<code>iProfit — Поиск — Бизнес клуб Дубай</code>) <strong class="signal">250 ключей</strong> заведены сразу в&nbsp;три ad group'ы — <strong>каждый</strong>. Это <code>dubai business</code>, <code>business club</code>, <code>vision business club</code>, <code>бизнес клуб атланты</code>, <code>клуб магнат</code>, <code>board club</code> и&nbsp;ещё две с&nbsp;половиной сотни. На&nbsp;один поиск Google показывает один из&nbsp;них, а&nbsp;остальные два простаивают и&nbsp;подтягивают вниз Quality Score всей кампании. Это последствие микро-разметки: чем больше ad group'ов, тем выше шанс, что один и&nbsp;тот же ключ попадёт в&nbsp;несколько групп — кто-то поэтому ad group и&nbsp;не прибил после копирования.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-11" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">XI</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">RSA</span>
+      <h2 class="chapter__title">Объявления <em>недостроены</em></h2>
+
+      <p>В&nbsp;четырёх Search-кампаниях — <strong class="signal">111 responsive search ads</strong>. Google для каждого RSA позволяет 15 headlines и&nbsp;4 descriptions. <strong>Ни одно из&nbsp;111 объявлений не использует этот лимит до&nbsp;конца:</strong></p>
+
+      <figure class="exhibit">
+        <header class="exhibit__head">
+          <span class="exhibit__num">Exhibit X · 111 RSA</span>
+          <span class="exhibit__title">Ни одно не дописано до&nbsp;максимума</span>
+        </header>
+        <table>
+          <thead><tr><th>Кампания</th><th class="num">RSA</th><th class="num">Headlines</th><th class="num">Descriptions</th></tr></thead>
+          <tbody>
+            <tr><td>iProfit — Поиск — Бизнес клуб Дубай</td><td class="num">11</td><td class="num">14 / 15</td><td class="num">3 / 4</td></tr>
+            <tr><td>iProfit — Поиск — Околоцелевое</td><td class="num">27</td><td class="num">15 / 15</td><td class="num">3 / 4</td></tr>
+            <tr><td>Поиск — Бизнес клуб Европа</td><td class="num">36</td><td class="num">15 / 15</td><td class="num">3 / 4</td></tr>
+            <tr><td>iProfit — Поиск — Бизнес клуб Страны</td><td class="num">37</td><td class="num">15 / 15</td><td class="num">3 / 4</td></tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <p>Видна типичная история: шаблон Search-кампании в&nbsp;Дубае сделали первым, не дописали ни последний headline, ни четвёртое description, потом скопировали в&nbsp;остальные три региона — в&nbsp;копиях headline дописали, descriptions оставили на&nbsp;3. Результат: каждый из&nbsp;111 объявлений теряет <strong>около 5–10% Ad&nbsp;Strength</strong>, что выливается в&nbsp;более низкий охват и&nbsp;более высокий CPC на&nbsp;тех же аукционах.</p>
+
+      <p>Это самое механически починяемое из&nbsp;всего, что есть в&nbsp;аудите. Час работы — и&nbsp;все 111 RSA подтянуты до&nbsp;максимума. До&nbsp;перезапуска Search-ветки это нужно сделать.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter chapter--alt" id="ch-12" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">XII</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Конверсии</span>
+      <h2 class="chapter__title">Настроены <em>аккуратно</em></h2>
+
+      <p>В&nbsp;кабинете <strong class="signal">16</strong> conversion actions, из&nbsp;которых 6 помечены как primary_for_goal. Структура хорошая:</p>
+
+      <ul>
+        <li><strong>VISION CLUB (web) LEAD_GA4</strong> — основной лид через GA4, primary;</li>
+        <li><strong>Clicks to call, Store visits, Local actions</strong> (Directions, Website visits, Engagements) — primary, локальная воронка;</li>
+        <li>Микро-цели <code>fb_vision</code>, <code>fb_aleksey</code>, <code>fb_dariia</code>, <code>inst_aleksey</code>, <code>inst_dariia</code>, <code>inst_vision</code> — прокси-сигналы для атрибуции через соцсети;</li>
+        <li>Импортированные события из&nbsp;GA4 (<code>ads_conversion__https_vision_club_ae_t_1</code>) — в&nbsp;статусе HIDDEN, не считаются в&nbsp;основной отчётности;</li>
+        <li>Auto-tagging включён.</li>
+      </ul>
+
+      <p>Это не «настроили один раз и&nbsp;забыли», это сетка целей с&nbsp;микро-конверсиями для обучения алгоритма. Именно поэтому PMax «Все сигналы — Страны New» получил обучение за&nbsp;месяц и&nbsp;вышел на&nbsp;CPA $4,41 — алгоритму хватило сигнала.</p>
+
+      <p>Одно исключение — активная конверсия <code>Android installs (all other apps)</code>. Это глобальный счётчик установок любых Android-приложений из&nbsp;Google Play после клика по&nbsp;рекламе. У&nbsp;бизнес-клуба нет своего приложения, и&nbsp;в&nbsp;активные цели этот счётчик не записан, но он остаётся в&nbsp;общем списке и&nbsp;иногда проявляется в&nbsp;отчётах под названием «конверсия». Стоит выключить — это не сигнал, к&nbsp;которому имеет смысл присматриваться.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-13" data-chapter>
+  <div class="chapter__inner">
+    <div class="chapter__num">XIII</div>
+    <div class="chapter__body">
+      <span class="chapter__kicker">Бюджеты</span>
+      <h2 class="chapter__title">Мусор и&nbsp;<em>сироты</em></h2>
+
+      <p>В&nbsp;кабинете <strong class="signal">27</strong> Campaign Budget'ов на&nbsp;26 кампаний. Заметные аномалии:</p>
+
+      <ul>
+        <li>Бюджет <code>КМС — Конкуренты — Дубай</code> создан <strong>дважды</strong>: $4 (не привязан ни к&nbsp;одной кампании, сирота) и&nbsp;$6 (привязан). Один из&nbsp;них — ошибка.</li>
+        <li>Бюджеты PMax-сегментаций (Аудитории $16,66, Авто $20,27, Интересы $2,20, База $37,50, База -2 $5, База общая $40) — все привязаны к&nbsp;paused кампаниям, которые ни разу не запустились. Они не тратят деньги, но занимают пространство в&nbsp;отчётах и&nbsp;интерфейсе.</li>
+      </ul>
+
+      <p>Из&nbsp;27 бюджетов <strong class="signal">восемь</strong> — это отдельные бюджеты по&nbsp;$20/день, по&nbsp;одному на&nbsp;кампанию: PMax-Дубай, Search-Дубай, два YouTube Shorts, YouTube-лента, бизнес-завтрак и&nbsp;ещё несколько. Не дублирующие, но несвязанные. Если в&nbsp;какой-то момент решат запустить две-три из&nbsp;этих кампаний одновременно — переливать ставку между ними получится только руками. Это кейс под shared budget, который аккаунт не использует ни разу.</p>
+
+      <p>Это не критическая поломка. Это симптом того, что в&nbsp;кабинете не делают «генеральную уборку» после неудачных запусков — и&nbsp;каждая попытка оставляет след.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   DIRECTIVES                                                  -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="directives" id="ch-directives" data-chapter>
+  <div class="directives__inner">
+    <div class="directives__head">
+      <div class="directives__num">⌘</div>
+      <div>
+        <h2 class="directives__title">Что <em>делать</em></h2>
+        <p class="directives__intro">Действия в&nbsp;порядке силы эффекта. Все три первых пункта про одно: вернуть работавшее, прежде чем строить новое.</p>
+      </div>
+    </div>
+
+    <ol class="directive-list">
+      <li class="high">
+        <span class="directive__priority">Сначала</span>
+        <h3 class="directive__title">Включить обратно «PMax — Все сигналы — Страны New»</h3>
+        <p class="directive__body">Это единственная кампания в&nbsp;аккаунте с&nbsp;подтверждённой экономикой (CPA $4,41, 89 конверсий, доля показов всего 36% — есть куда расти). Если промо «Дубай» планируется параллельно — пусть «Страны New» работает в&nbsp;фоне. Выключение этой кампании — самое дорогое решение в&nbsp;аккаунте сейчас.</p>
+      </li>
+      <li class="high">
+        <span class="directive__priority">Сначала</span>
+        <h3 class="directive__title">Дать понимание: зачем выключили работающее</h3>
+        <p class="directive__body">Если за&nbsp;этим стоит решение клиента сузить промо до&nbsp;Дубая — это не оптимизация, это смена стратегии, и&nbsp;её надо обсуждать отдельно. Если это случайность или попытка «дать алгоритму обучиться на&nbsp;Дубае без шума», то такая логика обычно не работает: PMax не «забывает» в&nbsp;фоне, выключение делает только хуже.</p>
+      </li>
+      <li class="high">
+        <span class="directive__priority">Сначала</span>
+        <h3 class="directive__title">Поднять бюджет «Страны New» до&nbsp;$40–60/день</h3>
+        <p class="directive__body">Доля показов 36%, потеря по&nbsp;рейтингу 63%, конверсии стабильные. Это редкий случай, когда удвоение бюджета даст близкое к&nbsp;удвоению результата (а&nbsp;не «как обычно — 30%»). Текущий лимит — $20 — был выставлен на&nbsp;этапе обучения, теперь его пора снять.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Удалить все «пробные» PMax-сегментации</h3>
+        <p class="directive__body">Восемь PMax-кампаний с&nbsp;разделением сигналов (Аудитории, Ключи, Интересы, База, База -2, База общая, Авто, Local) — удалить. Они не работают и&nbsp;не могут работать в&nbsp;выбранной форме. PMax эффективнее с&nbsp;одной кампанией, в&nbsp;которую заводятся все сигналы вместе — что подтверждает текущая «Все сигналы».</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Search упростить до&nbsp;одной кампании</h3>
+        <p class="directive__body">Из&nbsp;четырёх Search-кампаний оставить одну — «Бизнес-клуб Страны»: широкое гео (та же логика, что у&nbsp;работающего PMax), 10–15 ad groups вместо 36, 50–80 ключей вместо 410. Околоцелевое и&nbsp;Европу — отдельно решать, нужны ли они вообще: при объёмах PMax-«Страны» Search может оказаться лишним каналом. Если оставлять — бюджет минимум $30/день, иначе ставки будут ниже аукциона.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Сменить asset group в&nbsp;активной PMax-«Дубай»</h3>
+        <p class="directive__body">Asset group <code>База 4–6 сцен</code> с&nbsp;рейтингом GOOD сейчас на&nbsp;паузе, а&nbsp;работает <code>Гостевой</code> со&nbsp;средним рейтингом. Если решение запустить «Гостевого» не было обдуманным под текущее промо — поставить активной «Базу 4–6 сцен» либо запустить параллельно. Это бесплатное действие с&nbsp;измеримым эффектом на&nbsp;охват и&nbsp;CPA.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Повесить расширения на&nbsp;PMax-«Дубай»</h3>
+        <p class="directive__body">На&nbsp;активной PMax нет ни одного sitelink, callout, structured snippet, promo. На&nbsp;DemandGen-«Дубай» — есть 5 sitelinks. Скопировать оттуда то, что применимо, и&nbsp;собрать на&nbsp;PMax недостающее. Ожидаемый эффект — +CTR и&nbsp;+Ad&nbsp;Rank в&nbsp;тех же аукционах, без расхода.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Поставить target_CPA после возврата «Страны New»</h3>
+        <p class="directive__body">Когда «Страны New» обучена и&nbsp;идёт стабильно — заменить чистый MAXIMIZE_CONVERSIONS на&nbsp;тот же максимайз с&nbsp;tCPA $9–10 (выше медианного CPA $7,63, чтобы алгоритм не подрезался). Это снизит риск повторения нынешнего сценария «алгоритм пошёл за&nbsp;дешёвым трафиком и&nbsp;потерял конверсии», если потом решат снова сузить гео.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Решить судьбу «Дубай»-кампаний</h3>
+        <p class="directive__body">За&nbsp;месяц активности в&nbsp;узком гео — 0 конверсий на&nbsp;$69. Это слишком мало, чтобы делать выводы, но достаточно, чтобы поставить вопрос: либо даём «Дубаю» сильно больше бюджета и&nbsp;сравнимый период (4 недели, $50+/день), либо признаём, что в&nbsp;этой географии и&nbsp;при этой посадочной нет смысла — и&nbsp;закрываем гипотезу.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Достроить 111 RSA до&nbsp;15 headlines / 4 descriptions</h3>
+        <p class="directive__body">Самое механически починяемое: добавить недостающие headlines и&nbsp;descriptions во&nbsp;все 111 RSA. Это час работы и&nbsp;+5–10% Ad&nbsp;Strength во&nbsp;всей Search-ветке. До&nbsp;перезапуска Search-кампаний — обязательно.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Заменить или удалить видео в&nbsp;19 отклонённых ads</h3>
+        <p class="directive__body">Все 19 объявлений на&nbsp;YouTube/DemandGen висят с&nbsp;<code>UNAVAILABLE_VIDEO</code>. Пройти по&nbsp;списку, проверить ссылки, восстановить или заменить видеоассеты. Без этого YouTube-резерв нельзя запустить даже при желании.</p>
+      </li>
+      <li class="med">
+        <span class="directive__priority">Затем</span>
+        <h3 class="directive__title">Дедуплицировать ключи в&nbsp;Search-Дубай</h3>
+        <p class="directive__body">250 ключей в&nbsp;трёх ad group'ах одной кампании. Оставить в&nbsp;одной, в&nbsp;двух остальных удалить. Это снизит внутреннюю конкуренцию и&nbsp;подтянет QS.</p>
+      </li>
+      <li class="low">
+        <span class="directive__priority">Затем · когда данных хватит</span>
+        <h3 class="directive__title">Прибрать бюджеты-сироты, дубликаты, конверсии-мусор</h3>
+        <p class="directive__body">Удалить бюджет <code>КМС — Конкуренты — Дубай</code> ($4, ref=0). Выключить <code>Android installs (all other apps)</code> в&nbsp;conversion actions — у&nbsp;бизнес-клуба нет приложения. Связать оставшиеся бюджеты с&nbsp;конкретными активными кампаниями или удалить. Восемь отдельных $20-бюджетов объединить в&nbsp;один-два shared, если планируется одновременный запуск нескольких кампаний.</p>
+      </li>
+      <li class="low">
+        <span class="directive__priority">Затем · когда данных хватит</span>
+        <h3 class="directive__title">Снять target_search_network с&nbsp;DemandGen</h3>
+        <p class="directive__body">На&nbsp;активной DemandGen-«Дубай» включён показ через поисковых партнёров, что для этого формата лишнее. Выключить, чтобы исключить мусорный охват.</p>
+      </li>
+      <li class="low">
+        <span class="directive__priority">Затем · когда данных хватит</span>
+        <h3 class="directive__title">Подумать о&nbsp;DemandGen-«Дубай» как о&nbsp;верхней воронке</h3>
+        <p class="directive__body">«iProfit — Создание спроса — Дубай» сейчас даёт 5 346 показов и&nbsp;55 кликов без конверсий. Это типично для Demand Gen — он работает как охватный источник, а&nbsp;конверсии «дозревают» через ремаркетинг и&nbsp;Search. Имеет смысл оставить, но не как самостоятельный конверсионный канал, а&nbsp;как генератор аудитории для PMax-«Дубай», если последняя выживет.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   EPILOGUE                                                    -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="epilogue" id="ch-epilogue" data-chapter>
+  <div class="epilogue__num">⤿</div>
+  <div class="epilogue__body">
+    <h2 class="epilogue__title">Что произойдёт <em>после</em></h2>
+    <p>Если включить «Страны New» обратно с&nbsp;бюджетом $50/день, при тех же CPA-метриках ожидаемо: 4–5 конверсий в&nbsp;день, $20–25 на&nbsp;каждую. За&nbsp;месяц — 120–150 конверсий дополнительно к&nbsp;тому, что приносит «Дубай» (если он начнёт приносить). Это не прогноз — это просто продление того, что уже было в&nbsp;апреле–мае: данные есть, кампания обучена, аукцион не насыщен. Все остальные действия из&nbsp;списка — уборочные, эффект на&nbsp;бизнес-метрики у&nbsp;них вторичный.</p>
+
+    <p class="question">Ключевой вопрос аудита остаётся открытым и&nbsp;для меня, и&nbsp;для клиента — что именно требовалось от&nbsp;переключения на&nbsp;«Дубай»?</p>
+
+    <p>Если ответ есть и&nbsp;он обоснован — действуем дальше внутри этой логики. Если ответа нет — стоит вернуться к&nbsp;тому, что работало.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--   COLOPHON                                                    -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<footer class="colophon">
+  <div class="seal">
+    <div class="seal__mark"><em>V</em></div>
+    <div>Audit · 2026</div>
+  </div>
+  <div class="colophon__line"><strong>EXT. VISION CLUB</strong> · vision-club.ae</div>
+  <div class="colophon__line">Customer 545·391·0629 · «раздельные счета, 15%, промо в&nbsp;процессе»</div>
+  <div class="colophon__line">Аудит подготовлен на&nbsp;данных Google Ads API v23</div>
+  <div class="colophon__line">Период 28.02.2026 — 28.05.2026 · Опубликовано 28.05.2026</div>
 </footer>
 
-</div>
+</main>
 
 <script>
+/* reading progress */
+(function(){
+  const bar = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max ? h.scrollTop / max : 0) + ')';
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* floating chapter dots */
+(function(){
+  const rail = document.getElementById('rail');
+  const chapters = document.querySelectorAll('[data-chapter]');
+  if (!rail || !chapters.length) return;
+  chapters.forEach(() => rail.appendChild(document.createElement('span')));
+  const dots = rail.querySelectorAll('span');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const i = Array.from(chapters).indexOf(e.target);
+      if (i < 0) return;
+      if (e.isIntersecting) {
+        dots.forEach(d => d.classList.remove('is-current'));
+        dots[i].classList.add('is-current');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  chapters.forEach(c => io.observe(c));
+})();
+
+/* reveal on scroll */
+(function(){
+  const els = document.querySelectorAll('.chapter, .epilogue, .directives, .stats');
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  els.forEach(el => io.observe(el));
+})();
+
+/* chart */
 const LABELS = ["2026-02-28","2026-03-01","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-07","2026-03-08","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-14","2026-03-15","2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20","2026-03-21","2026-03-22","2026-03-23","2026-03-24","2026-03-25","2026-03-26","2026-03-27","2026-03-28","2026-03-29","2026-03-30","2026-03-31","2026-04-01","2026-04-02","2026-04-03","2026-04-04","2026-04-05","2026-04-06","2026-04-07","2026-04-08","2026-04-09","2026-04-10","2026-04-11","2026-04-12","2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17","2026-04-18","2026-04-19","2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24","2026-04-25","2026-04-26","2026-04-27","2026-04-28","2026-04-29","2026-04-30","2026-05-01","2026-05-02","2026-05-03","2026-05-04","2026-05-05","2026-05-06","2026-05-07","2026-05-08","2026-05-09","2026-05-10","2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15","2026-05-16","2026-05-17","2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22","2026-05-23","2026-05-24","2026-05-25","2026-05-26","2026-05-27","2026-05-28"];
-
 const IMP = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25994,22250,34654,23819,29316,33516,59965,38089,9701,8538,12048,8977,6516,6526,6313,8159,7446,7452,8406,6857,4795,5171,3346,0,147,10082,6589,6538,5323,3030,4502];
-
 const CLK = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,481,655,2078,1329,1479,1238,997,458,404,363,352,299,321,332,171,465,235,372,376,320,243,273,107,0,2,496,270,127,150,33,52];
-
 const CONV = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4.0,11.0,16.0,20.0,11.0,6.0,3.0,1.7,10.3,8.0,8.0,5.0,4.0,1.0,8.0,2.0,11.0,6.9,9.0,9.0,6.0,4.0,0,0.0,8.0,7.0,2.0,2.0,0.0,0.0];
 
 new Chart(document.getElementById('ch'), {
@@ -649,28 +1579,51 @@ new Chart(document.getElementById('ch'), {
     labels: LABELS,
     datasets: [
       { label: 'Показы', data: IMP,
-        borderColor: '#1a1a1a', backgroundColor: 'rgba(0,0,0,.05)',
-        tension: .25, fill: true, pointRadius: 0, borderWidth: 1.5, yAxisID: 'y' },
+        borderColor: '#332b22', backgroundColor: 'rgba(51,43,34,.08)',
+        tension: .3, fill: true, pointRadius: 0, borderWidth: 1.5, yAxisID: 'y' },
       { label: 'Клики', data: CLK,
-        borderColor: '#b53a2a', backgroundColor: 'transparent',
-        tension: .25, pointRadius: 0, borderWidth: 1.5, yAxisID: 'y1' },
+        borderColor: '#c89b5a', backgroundColor: 'transparent',
+        tension: .3, pointRadius: 0, borderWidth: 1.5, yAxisID: 'y1' },
       { label: 'Конверсии', data: CONV,
-        borderColor: '#4a7a47', backgroundColor: 'transparent',
-        tension: .25, pointRadius: 3, borderWidth: 1.5, yAxisID: 'y2' }
+        borderColor: '#dc4b3c', backgroundColor: 'rgba(220,75,60,.12)',
+        tension: .3, pointRadius: 3, pointBackgroundColor: '#dc4b3c',
+        borderWidth: 1.8, yAxisID: 'y2', fill: false }
     ]
   },
   options: {
     responsive: true,
     interaction: { mode: 'index', intersect: false },
-    plugins: { legend: { position: 'bottom', labels: { font: {family: '-apple-system'} } } },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          font: { family: 'IBM Plex Sans', size: 11, weight: 500 },
+          color: '#332b22',
+          boxWidth: 10, boxHeight: 10, padding: 16,
+          usePointStyle: true, pointStyle: 'rectRounded'
+        }
+      },
+      tooltip: {
+        backgroundColor: '#15120f',
+        titleFont: { family: 'JetBrains Mono', size: 11 },
+        bodyFont: { family: 'IBM Plex Sans', size: 12 },
+        padding: 12, borderColor: '#c89b5a', borderWidth: 1,
+        cornerRadius: 0
+      }
+    },
     scales: {
-      y: { position: 'left', grid: { color: '#eee' }, ticks: { color: '#6b6b6b' } },
-      y1: { position: 'right', grid: { display: false }, ticks: { color: '#b53a2a' } },
+      y: { position: 'left',
+           grid: { color: 'rgba(10,9,8,.08)' },
+           ticks: { color: '#6b6b6b', font: { family: 'JetBrains Mono', size: 10 } } },
+      y1: { position: 'right',
+            grid: { display: false },
+            ticks: { color: '#c89b5a', font: { family: 'JetBrains Mono', size: 10 } } },
       y2: { display: false },
-      x: { ticks: { color: '#6b6b6b', maxTicksLimit: 8 }, grid: { display: false } }
+      x: { ticks: { color: '#6b6b6b', maxTicksLimit: 8, font: { family: 'JetBrains Mono', size: 10 } },
+           grid: { display: false } }
     }
   }
 });
 </script>
-
-</body></html>
+</body>
+</html>
